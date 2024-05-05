@@ -33,7 +33,7 @@ namespace organizer.Models
 
         public virtual ICollection<RepeatableTask>? RepeatableTasks { get; set; }
 
-        public static void SetBaseTreatments(ModelBuilder modelBuilder)
+        public static void SetBaseGroups(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TaskGroup>().HasData(
                 new TaskGroup { TaskGroupID = -1, Name = "Уборка", IsBuiltin = true },
