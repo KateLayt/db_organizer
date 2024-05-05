@@ -3,6 +3,34 @@
   "WorkspaceRootPath": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{995901F9-F290-48FF-9618-1B43205930BE}|organizer.csproj|c:\\users\\msi gl75\\desktop\\mpu\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{995901F9-F290-48FF-9618-1B43205930BE}|organizer.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{995901F9-F290-48FF-9618-1B43205930BE}|organizer.csproj|c:\\users\\msi gl75\\desktop\\mpu\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{995901F9-F290-48FF-9618-1B43205930BE}|organizer.csproj|solutionrelative:models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{995901F9-F290-48FF-9618-1B43205930BE}|organizer.csproj|c:\\users\\msi gl75\\desktop\\mpu\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\models\\repeatabletask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{995901F9-F290-48FF-9618-1B43205930BE}|organizer.csproj|solutionrelative:models\\repeatabletask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{995901F9-F290-48FF-9618-1B43205930BE}|organizer.csproj|c:\\users\\msi gl75\\desktop\\mpu\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\models\\taskgroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{995901F9-F290-48FF-9618-1B43205930BE}|organizer.csproj|solutionrelative:models\\taskgroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{995901F9-F290-48FF-9618-1B43205930BE}|organizer.csproj|c:\\users\\msi gl75\\desktop\\mpu\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\organizerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{995901F9-F290-48FF-9618-1B43205930BE}|organizer.csproj|solutionrelative:organizerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{995901F9-F290-48FF-9618-1B43205930BE}|organizer.csproj|c:\\users\\msi gl75\\desktop\\mpu\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{995901F9-F290-48FF-9618-1B43205930BE}|organizer.csproj|solutionrelative:models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{995901F9-F290-48FF-9618-1B43205930BE}|organizer.csproj|c:\\users\\msi gl75\\desktop\\mpu\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\dateconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{995901F9-F290-48FF-9618-1B43205930BE}|organizer.csproj|solutionrelative:dateconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{995901F9-F290-48FF-9618-1B43205930BE}|organizer.csproj|c:\\users\\msi gl75\\desktop\\mpu\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{995901F9-F290-48FF-9618-1B43205930BE}|organizer.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -18,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,7 +58,98 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Comment.cs",
+              "DocumentMoniker": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\Models\\Comment.cs",
+              "RelativeDocumentMoniker": "Models\\Comment.cs",
+              "ToolTip": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\Models\\Comment.cs",
+              "RelativeToolTip": "Models\\Comment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T17:49:51.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RepeatableTask.cs",
+              "DocumentMoniker": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\Models\\RepeatableTask.cs",
+              "RelativeDocumentMoniker": "Models\\RepeatableTask.cs",
+              "ToolTip": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\Models\\RepeatableTask.cs",
+              "RelativeToolTip": "Models\\RepeatableTask.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABMAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T17:32:01.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DateConverter.cs",
+              "DocumentMoniker": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\DateConverter.cs",
+              "RelativeDocumentMoniker": "DateConverter.cs",
+              "ToolTip": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\DateConverter.cs",
+              "RelativeToolTip": "DateConverter.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T17:30:10.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Task.cs",
+              "DocumentMoniker": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\Models\\Task.cs",
+              "RelativeDocumentMoniker": "Models\\Task.cs",
+              "ToolTip": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\Models\\Task.cs",
+              "RelativeToolTip": "Models\\Task.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T17:15:17.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TaskGroup.cs",
+              "DocumentMoniker": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\Models\\TaskGroup.cs",
+              "RelativeDocumentMoniker": "Models\\TaskGroup.cs",
+              "ToolTip": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\Models\\TaskGroup.cs",
+              "RelativeToolTip": "Models\\TaskGroup.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAYwCgAAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T17:12:42.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T17:02:10.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrganizerDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\OrganizerDbContext.cs",
+              "RelativeDocumentMoniker": "OrganizerDbContext.cs",
+              "ToolTip": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\OrganizerDbContext.cs",
+              "RelativeToolTip": "OrganizerDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T17:00:54.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -42,7 +161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\MSI GL75\\Desktop\\MPU\\\u0431\u0434\\organizer-db\\organizer-db\\db_organizer\\organizer\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
@@ -50,8 +169,7 @@
               "RelativeToolTip": "MainWindow.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-05T16:33:31.354Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-05T16:33:31.354Z"
             }
           ]
         }
