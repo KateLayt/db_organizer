@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button x:Name="Btn_AddTask" Content="Добавить" HorizontalAlignment="Left" Height="38" Margin="194,290,0,0" VerticalAlignment="Top" Width="134" Click="Btn_AddTask_Click"/>
+        <TextBox x:Name="Lbl_Name" HorizontalAlignment="Left" Height="32" Margin="111,151,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="150"/>
+        <TextBox x:Name="CONSOLE" HorizontalAlignment="Left" Margin="457,151,0,0" TextWrapping="Wrap" Text="condollllllllllm" VerticalAlignment="Top" Width="235" Height="32"/>
 
     </Grid>
 </Window>

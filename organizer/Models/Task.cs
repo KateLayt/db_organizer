@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace organizer.Models
 {
@@ -24,6 +25,7 @@ namespace organizer.Models
         [ForeignKey("TaskGroup")]
         public int? TaskGroupID { get; set; }
 
+        [JsonIgnore]
         public virtual TaskGroup? TaskGroup { get; set; }
 
     }
