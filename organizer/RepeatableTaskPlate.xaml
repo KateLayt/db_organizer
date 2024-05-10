@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="organizer.RepeatableTaskPlate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:organizer"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="300">
+    <Grid Background="White">
+        <Button x:Name="Btn_TaskEdit" Content="Изменить" HorizontalAlignment="Left" Margin="17,93,0,0" VerticalAlignment="Top" Height="28" Width="89"/>
+        <Button x:Name="Btn_TaskDone" Content="Готово" HorizontalAlignment="Left" Margin="200,93,0,0" VerticalAlignment="Top" Height="28" Width="87"/>
+        <TextBlock x:Name="Txt_TaskName" HorizontalAlignment="Left" Margin="14,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Height="16"><Run Language="ru-ru" Text="Название задачи"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="14,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Height="16"><Run Language="ru-ru" Text="Последний раз выполнено:"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="14,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="16"><Run Language="ru-ru" Text="Повторяется каждые:"/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="Txt_LastDone" HorizontalAlignment="Left" Margin="172,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="78"><Run Text="дата"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="Txt_RepeatEvery" HorizontalAlignment="Left" Margin="138,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="84"><Run Language="ru-ru" Text="число_дней"/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="Txt_TaskStatus" HorizontalAlignment="Left" Margin="195,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="92"><Run Text="Статус"/><Run Language="ru-ru" Text=" задачи"/><LineBreak/><Run/></TextBlock>
+    </Grid>
+</UserControl>

@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="Btn_AddTask" Content="Добавить" HorizontalAlignment="Left" Height="38" Margin="194,290,0,0" VerticalAlignment="Top" Width="134" Click="Btn_AddTask_Click"/>
-        <TextBox x:Name="Lbl_Name" HorizontalAlignment="Left" Height="32" Margin="111,151,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="150"/>
-        <TextBox x:Name="CONSOLE" HorizontalAlignment="Left" Margin="457,151,0,0" TextWrapping="Wrap" Text="condollllllllllm" VerticalAlignment="Top" Width="235" Height="32"/>
+        <Button x:Name="Btn_MainPage" Content="Главная" HorizontalAlignment="Left" Height="38" Margin="36,125,0,0" VerticalAlignment="Top" Width="134" Click="Btn_MainPage_Click"/>
+        <Button x:Name="Btn_ListPage" Content="Списки" HorizontalAlignment="Left" Height="38" Margin="36,193,0,0" VerticalAlignment="Top" Width="134" Click="Btn_ListPage_Click"/>
+        <Button x:Name="Btn_AccountPage" Content="Аккаунт" HorizontalAlignment="Left" Height="38" Margin="36,263,0,0" VerticalAlignment="Top" Width="134" Click="Btn_AccountPage_Click"/>
+        <local:RepeatableTaskPlate HorizontalAlignment="Left" Margin="366,111,0,0" VerticalAlignment="Top" Height="190" Width="379"/>
 
     </Grid>
 </Window>

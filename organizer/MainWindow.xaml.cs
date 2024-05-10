@@ -22,25 +22,36 @@ namespace organizer
             InitializeComponent();
         }
 
-        private void Btn_AddTask_Click(object sender, RoutedEventArgs e)
-        {
-            // ОБЕРНУТЬ ВСЕ В TRY CATCH
-            // ПРОВЕРКИ ВНУТРИ БДШКИ
-            // Проверка Lbl_Name.Text 
-            if (!string.IsNullOrEmpty(Lbl_Name.Text))
-            {
-                using (var dbContext = new OrganizerDbContext())
-                {
-                    Task newTask = new Task { Name = Lbl_Name.Text, Status = "мда" };
-                    CONSOLE.Text = newTask.Name;
-                    dbContext.Tasks.Add(newTask);
-                    dbContext.SaveChanges();
-                }
-            }
-            else
-            {
+        /* private void Btn_AddTask_Click(object sender, RoutedEventArgs e)
+         {
+             // ОБЕРНУТЬ ВСЕ В TRY CATCH
+             // ПРОВЕРКИ ВНУТРИ БДШКИ
+             // Проверка Lbl_Name.Text 
+             if (!string.IsNullOrEmpty(Lbl_Name.Text))
+             {
+                 using (var dbContext = new OrganizerDbContext())
+                 {
+                     Task newTask = new Task { Name = Lbl_Name.Text, Status = "мда" };
+                     CONSOLE.Text = newTask.Name;
+                     dbContext.Tasks.Add(newTask);
+                     dbContext.SaveChanges();
+                 }
+             }
+    }*/
 
-            }
+        private void Btn_AccountPage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_MainPage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_ListPage_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
