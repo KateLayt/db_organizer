@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="organizer.PlainTaskPlate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:organizer"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="300">
+    <Grid Background="White">
+        <Button x:Name="Btn_TaskEdit" Content="Изменить" HorizontalAlignment="Left" Margin="14,63,0,0" VerticalAlignment="Top" Height="28" Width="88" Click="Btn_TaskEdit_Click"/>
+        <Button x:Name="Btn_TaskDone" Content="Готово" HorizontalAlignment="Left" Margin="200,63,0,0" VerticalAlignment="Top" Height="28" Width="86" Click="Btn_TaskDone_Click"/>
+        <TextBlock x:Name="Txt_TaskName" HorizontalAlignment="Left" Margin="15,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Height="16"><Run Language="ru-ru" Text="Название задачи"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+        <TextBlock x:Name="Txt_TaskStatus" HorizontalAlignment="Left" Margin="150,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="136" TextAlignment="Right"><Run Text="Статус"/><Run Language="ru-ru" Text=" задачи"/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="Txt_DeadlinePretxt" HorizontalAlignment="Left" Margin="15,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Height="16"><Run Language="ru-ru" Text="Крайний срок:"/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="Txt_Deadline" HorizontalAlignment="Center" Margin="0,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="88"><Run Text="дата"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+
+    </Grid>
+</UserControl>

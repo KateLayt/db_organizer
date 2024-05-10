@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Task = organizer.Models.Task;
 
 namespace organizer
 {
@@ -22,17 +21,23 @@ namespace organizer
     /// </summary>
     public partial class RepeatableTaskPlate : UserControl
     {
-        RepeatableTask representedTask;
+        public RepeatableTask RepresentedTask;
         public RepeatableTaskPlate()
         {
             InitializeComponent();
+            Update();
+        }
 
-            representedTask = MANUALDATA.reptsk1;
-            Txt_TaskName.Text = representedTask.Name;
-            Txt_TaskStatus.Text = representedTask.Status;
-            Txt_RepeatEvery.Text = DateConverter.RepresentDays(representedTask.Interval);
-            Txt_LastDone.Text = DateConverter.RepresentDate(representedTask.LastDone); //нам точно нужно, чтобы это свойство было nullable в модели?
-
+        public void Update()
+        {
+            if (RepresentedTask == null)
+            {
+                RepresentedTask = MANUALDATA.reptsk1;
+            }
+            Txt_TaskName.Text = RepresentedTask.Name;
+            Txt_TaskStatus.Text = RepresentedTask.Status;
+            Txt_RepeatEvery.Text = DateConverter.RepresentDays(RepresentedTask.Interval);
+            Txt_LastDone.Text = DateConverter.RepresentDate(RepresentedTask.LastDone); //нам точно нужно, чтобы это свойство было nullable в модели повторяемой задачи?
         }
 
         //проверки на тип задачи, в связи с ними же отображение полей и изменение значений в них.

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using organizer.Models;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,7 +21,14 @@ namespace organizer
         public MainWindow()
         {
             InitializeComponent();
-        }
+
+            Plate1.RepresentedTask = new RepeatableTask { Name = "Повторяемая задача 2", Status = "Ожидает выполнения", Interval = 10, LastDone = DateTime.Today };
+            Plate2.RepresentedTask = new Task { Name = "Задача 3", Status = "Не завершено" };
+            Plate3.RepresentedTask =  new Task { Name = "Задача со сроком", Status = "Выполняется", Deadline = new DateTime(2023, 10, 10) };
+            Plate1.Update();
+            Plate2.Update();
+            Plate3.Update();
+    }
 
         /* private void Btn_AddTask_Click(object sender, RoutedEventArgs e)
          {

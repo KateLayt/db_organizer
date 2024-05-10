@@ -209,3 +209,5 @@ C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.sourcelink.json
 C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.csproj.CopyComplete
 C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.genruntimeconfig.cache
 C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\ref\organizer.dll
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\PlainTaskPlate.g.cs
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\PlainTaskPlate.baml
