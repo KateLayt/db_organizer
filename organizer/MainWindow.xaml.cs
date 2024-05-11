@@ -28,10 +28,6 @@ namespace organizer
             Plate1.Update();
             Plate2.Update();
             Plate3.Update();
-
-            TaskCreateWindow editWind = new TaskCreateWindow();
-            editWind.main = this;
-            editWind.Show();
         }
 
         public void SetRepeatable(RepeatableTask newTask)

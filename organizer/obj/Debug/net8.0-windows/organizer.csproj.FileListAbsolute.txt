@@ -213,3 +213,5 @@ C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\PlainTaskPlate.g.cs
 C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\PlainTaskPlate.baml
 C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\TaskCreateWindow.g.cs
 C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\TaskCreateWindow.baml
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\TaskEditWindow.g.cs
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\TaskEditWindow.baml

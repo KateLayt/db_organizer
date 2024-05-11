@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="120" d:DesignWidth="300">
     <Grid Background="White">
-        <Button x:Name="Btn_TaskEdit" Content="Изменить" HorizontalAlignment="Left" Margin="17,82,0,0" VerticalAlignment="Top" Height="28" Width="89"/>
+        <Button x:Name="Btn_TaskEdit" Content="Изменить" HorizontalAlignment="Left" Margin="17,82,0,0" VerticalAlignment="Top" Height="28" Width="89" Click="Btn_TaskEdit_Click"/>
         <Button x:Name="Btn_TaskDone" Content="Готово" HorizontalAlignment="Left" Margin="200,82,0,0" VerticalAlignment="Top" Height="28" Width="87"/>
         <TextBlock x:Name="Txt_TaskName" HorizontalAlignment="Left" Margin="15,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" Height="16"><Run Language="ru-ru" Text="Название задачи"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="15,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Height="16"><Run Language="ru-ru" Text="Последний раз выполнено:"/><LineBreak/><Run/></TextBlock>

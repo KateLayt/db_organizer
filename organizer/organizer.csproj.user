@@ -16,6 +16,9 @@
     <Compile Update="TaskCreateWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="TaskEditWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
@@ -28,6 +31,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="TaskCreateWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TaskEditWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

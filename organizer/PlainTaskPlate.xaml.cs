@@ -56,7 +56,8 @@ namespace organizer
 
         private void Btn_TaskEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            TaskEditWindow editWind = new TaskEditWindow(RepresentedTask, this);
+            editWind.Show();
         }
     }
 }

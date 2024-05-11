@@ -40,6 +40,12 @@ namespace organizer
             Txt_LastDone.Text = DateConverter.RepresentDate(RepresentedTask.LastDone); //нам точно нужно, чтобы это свойство было nullable в модели повторяемой задачи?
         }
 
+        private void Btn_TaskEdit_Click(object sender, RoutedEventArgs e)
+        {
+            TaskEditWindow editWind = new TaskEditWindow(RepresentedTask, this);
+            editWind.Show();
+        }
+
         //проверки на тип задачи, в связи с ними же отображение полей и изменение значений в них.
     }
 }
