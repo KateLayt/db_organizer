@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("organizer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< Updated upstream
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9817fc6a4ba7d30ebd079b3e7f7b8d99a81adffb")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ce9015c6ad97adbb48889f96d30fd914ccbb1428")]
->>>>>>> Stashed changes
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+887eb3fce44b80129089edceeeaf327425472657")]
 [assembly: System.Reflection.AssemblyProductAttribute("organizer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("organizer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

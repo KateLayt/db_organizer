@@ -10,11 +10,19 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\App.xaml
+<<<<<<< Updated upstream
 11407045341
 
 18-1871279211
 212-769172051
 MainWindow.xaml;
+=======
+4-978675608
+
+23422943520
+212-769172051
+MainWindow.xaml;PlainTaskPlate.xaml;RepeatableTaskPlate.xaml;TaskCreateWindow.xaml;
+>>>>>>> Stashed changes
 
 False
 

@@ -102,3 +102,124 @@ C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organi
 C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.pdb
 C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.genruntimeconfig.cache
 C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\ref\organizer.dll
+<<<<<<< Updated upstream
+=======
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.csproj.AssemblyReference.cache
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\RepeatableTaskPlate.g.cs
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\App.g.cs
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer_MarkupCompile.cache
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer_MarkupCompile.lref
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.dll
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\refint\organizer.dll
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.pdb
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\organizer.exe
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\organizer.deps.json
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\organizer.runtimeconfig.json
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\organizer.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\organizer.pdb
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Humanizer.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.CSharp.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyModel.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Mono.TextTemplating.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Npgsql.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\System.Composition.AttributedModel.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\System.Composition.Convention.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\System.Composition.Hosting.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\System.Composition.Runtime.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\System.Composition.TypedParts.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\it\Microsoft.CodeAnalysis.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\RepeatableTaskPlate.baml
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.g.resources
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.AssemblyInfoInputs.cache
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.AssemblyInfo.cs
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.csproj.CoreCompileInputs.cache
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.sourcelink.json
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.csproj.CopyComplete
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.genruntimeconfig.cache
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\ref\organizer.dll
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\PlainTaskPlate.g.cs
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\PlainTaskPlate.baml
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\TaskCreateWindow.g.cs
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\TaskCreateWindow.baml
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\PlainTaskPlate.g.cs
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\RepeatableTaskPlate.g.cs
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\TaskCreateWindow.g.cs
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\PlainTaskPlate.baml
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\RepeatableTaskPlate.baml
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\TaskCreateWindow.baml
+>>>>>>> Stashed changes
