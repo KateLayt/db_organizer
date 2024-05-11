@@ -28,7 +28,22 @@ namespace organizer
             Plate1.Update();
             Plate2.Update();
             Plate3.Update();
-    }
+
+            TaskCreateWindow editWind = new TaskCreateWindow();
+            editWind.main = this;
+            editWind.Show();
+        }
+
+        public void SetRepeatable(RepeatableTask newTask)
+        {
+            Plate1.RepresentedTask = newTask;
+            Plate1.Update();
+        }
+        public void SetPlain(Task newTask)
+        {
+            Plate2.RepresentedTask = newTask;
+            Plate2.Update();
+        }
 
         /* private void Btn_AddTask_Click(object sender, RoutedEventArgs e)
          {
@@ -60,6 +75,13 @@ namespace organizer
         private void Btn_ListPage_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Btn_AddTask_Click(object sender, RoutedEventArgs e)
+        {
+            TaskCreateWindow editWind = new TaskCreateWindow();
+            editWind.main = this;
+            editWind.Show();
         }
     }
 }

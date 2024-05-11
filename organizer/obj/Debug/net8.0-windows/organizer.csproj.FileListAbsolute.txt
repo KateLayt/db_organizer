@@ -211,3 +211,5 @@ C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.genruntimeconfi
 C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\ref\organizer.dll
 C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\PlainTaskPlate.g.cs
 C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\PlainTaskPlate.baml
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\TaskCreateWindow.g.cs
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\TaskCreateWindow.baml
