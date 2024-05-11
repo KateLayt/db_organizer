@@ -25,6 +25,7 @@ namespace organizer
         public RepeatableTaskPlate()
         {
             InitializeComponent();
+            //RepresentedTask = task; в итоговой архитектуре назначение вручную извне - бан. таск должен будет передаваться в конструктор перед отображением плашек.
             Update();
         }
 
@@ -37,7 +38,7 @@ namespace organizer
             Txt_TaskName.Text = RepresentedTask.Name;
             Txt_TaskStatus.Text = RepresentedTask.Status;
             Txt_RepeatEvery.Text = DateConverter.RepresentDays(RepresentedTask.Interval);
-            Txt_LastDone.Text = DateConverter.RepresentDate(RepresentedTask.LastDone); //нам точно нужно, чтобы это свойство было nullable в модели повторяемой задачи?
+            Txt_LastDone.Text = DateConverter.RepresentDate(RepresentedTask.LastDone);
         }
 
         private void Btn_TaskEdit_Click(object sender, RoutedEventArgs e)
@@ -45,7 +46,5 @@ namespace organizer
             TaskEditWindow editWind = new TaskEditWindow(RepresentedTask, this);
             editWind.Show();
         }
-
-        //проверки на тип задачи, в связи с ними же отображение полей и изменение значений в них.
     }
 }

@@ -24,9 +24,10 @@ namespace organizer
     {
         private string _taskType = "Plain";
         public MainWindow main;
-        public TaskCreateWindow()
+        public TaskCreateWindow(MainWindow sender)
         {
             InitializeComponent();
+            main = sender;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

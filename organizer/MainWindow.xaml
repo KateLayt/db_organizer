@@ -5,15 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="1000">
     <Grid>
-        <Button x:Name="Btn_MainPage" Content="Главная" HorizontalAlignment="Left" Height="38" Margin="38,60,0,0" VerticalAlignment="Top" Width="134" Click="Btn_MainPage_Click"/>
-        <Button x:Name="Btn_ListPage" Content="Списки" HorizontalAlignment="Left" Height="38" Margin="38,128,0,0" VerticalAlignment="Top" Width="134" Click="Btn_ListPage_Click"/>
-        <Button x:Name="Btn_AccountPage" Content="Аккаунт" HorizontalAlignment="Left" Height="38" Margin="38,0,0,0" VerticalAlignment="Center" Width="134" Click="Btn_AccountPage_Click"/>
-        <local:RepeatableTaskPlate x:Name="Plate1" HorizontalAlignment="Left" Margin="370,22,0,0" VerticalAlignment="Top" Height="122" Width="306"/>
-        <local:PlainTaskPlate x:Name="Plate2" HorizontalAlignment="Left" Margin="370,156,0,0" VerticalAlignment="Top" Height="112" Width="306"/>
-        <local:PlainTaskPlate x:Name="Plate3" HorizontalAlignment="Left" Margin="370,282,0,0" VerticalAlignment="Top" Height="107" Width="306"/>
-        <Button x:Name="Btn_AddTask" Content="Создать задачу" HorizontalAlignment="Left" Height="38" Margin="38,312,0,0" VerticalAlignment="Top" Width="134" Click="Btn_AddTask_Click"/>
+        <Button x:Name="Btn_MainPage" Content="Главная" HorizontalAlignment="Left" Height="38" Margin="28,61,0,0" VerticalAlignment="Top" Width="134" Click="Btn_MainPage_Click"/>
+        <Button x:Name="Btn_ListPage" Content="Списки" HorizontalAlignment="Left" Height="38" Margin="28,129,0,0" VerticalAlignment="Top" Width="134" Click="Btn_ListPage_Click"/>
+        <Button x:Name="Btn_AccountPage" Content="Аккаунт" HorizontalAlignment="Left" Height="38" Margin="28,0,0,0" VerticalAlignment="Center" Width="134" Click="Btn_AccountPage_Click"/>
+        <local:RepeatableTaskPlate x:Name="Plate1" HorizontalAlignment="Left" Margin="181,37,0,0" VerticalAlignment="Top" Height="122" Width="306"/>
+        <local:PlainTaskPlate x:Name="Plate2" HorizontalAlignment="Left" Margin="181,171,0,0" VerticalAlignment="Top" Height="112" Width="306"/>
+        <local:PlainTaskPlate x:Name="Plate3" HorizontalAlignment="Left" Margin="181,297,0,0" VerticalAlignment="Top" Height="107" Width="306"/>
+        <Button x:Name="Btn_AddTask" Content="Создать задачу" HorizontalAlignment="Left" Height="38" Margin="28,313,0,0" VerticalAlignment="Top" Width="134" Click="Btn_AddTask_Click"/>
+        <ScrollViewer Margin="592,36,75,31">
+            <StackPanel x:Name="View_TaskList">
+                <local:PlainTaskPlate Width="300" Height="100"></local:PlainTaskPlate>
+                <local:PlainTaskPlate Width="300" Height="100"></local:PlainTaskPlate>
+                <local:PlainTaskPlate Width="300" Height="100"></local:PlainTaskPlate>
+                <local:PlainTaskPlate Width="300" Height="100"></local:PlainTaskPlate>
+            </StackPanel>
+        </ScrollViewer>
 
     </Grid>
 </Window>

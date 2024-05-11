@@ -28,6 +28,15 @@ namespace organizer
             Plate1.Update();
             Plate2.Update();
             Plate3.Update();
+
+            foreach(Task tsk in MANUALDATA.tsklst)
+            {
+                PlainTaskPlate taskPlate = new PlainTaskPlate();
+                taskPlate.RepresentedTask = tsk;
+                View_TaskList.Children.Add(taskPlate);
+                taskPlate.Update();
+
+            }
         }
 
         public void SetRepeatable(RepeatableTask newTask)
@@ -75,8 +84,7 @@ namespace organizer
 
         private void Btn_AddTask_Click(object sender, RoutedEventArgs e)
         {
-            TaskCreateWindow editWind = new TaskCreateWindow();
-            editWind.main = this;
+            TaskCreateWindow editWind = new TaskCreateWindow(this);
             editWind.Show();
         }
     }

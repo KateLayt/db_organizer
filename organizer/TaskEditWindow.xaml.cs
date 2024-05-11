@@ -67,6 +67,14 @@ namespace organizer
             Close();
         }
 
+        private void Btn_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (editedRepTask != null) repeatableSender.Visibility = Visibility.Collapsed;
+            if (editedTask != null) plainSender.Visibility = Visibility.Collapsed;
+            //Здесь нужно удалить соответствующую задачу (которая вверху проверяется на null) из базы
+            Close();
+        }
+
         private void Btn_Change_Click(object sender, RoutedEventArgs e)
         {
             string errors = "";
