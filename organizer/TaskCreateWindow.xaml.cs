@@ -85,6 +85,8 @@ namespace organizer
                         dbContext.SaveChanges();
                     }
                     //Добавить reptask в наши задачи Db.Add чето там, и обновить страницу.
+
+                    main.Update();
                     Close();
                 }
             }
@@ -113,6 +115,7 @@ namespace organizer
                         dbContext.SaveChanges();
                     }
 
+                    main.Update();
                     Close();
                 }
             }

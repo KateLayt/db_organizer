@@ -39,6 +39,12 @@ namespace organizer
             //    taskPlate.Update();
 
             //}
+            Update();
+            
+        }
+
+        public void Update()
+        {
             using (OrganizerDbContext dbContext = new OrganizerDbContext())
             {
                 foreach (Task task in dbContext.Tasks)
@@ -49,7 +55,7 @@ namespace organizer
                     taskPlate.Update();
                 }
 
-                foreach (RepeatableTask task in  dbContext.RepeatableTasks)
+                foreach (RepeatableTask task in dbContext.RepeatableTasks)
                 {
                     RepeatableTaskPlate taskPlate = new RepeatableTaskPlate();
                     taskPlate.RepresentedTask = task;
@@ -57,7 +63,6 @@ namespace organizer
                     taskPlate.Update();
                 }
             }
-            
         }
 
         public void SetRepeatable(RepeatableTask newTask)

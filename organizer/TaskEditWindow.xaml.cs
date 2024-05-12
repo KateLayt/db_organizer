@@ -103,7 +103,6 @@ namespace organizer
             string errors = "";
             if (editedRepTask != null)
             {
-                editedRepTask.Name = Txt_TaskName.Text;     // Не совсем поняла а зачем это тут сверху?? Для теста? 
                 if (Txt_TaskName.Text.Length < 3 || Txt_TaskName.Text.Length > 20) 
                     errors += "Название задачи должно содержать от 3 до 20 символов.\n";
                 else 
@@ -120,15 +119,12 @@ namespace organizer
                 {
                     if (DateTime.Parse(Date_LastDone.Text) > DateTime.Now) errors += "Дата последнего выполнения не может быть позже сегодняшнего дня.\n";
 
-                    // Тут ничего не было я допишу наверное должно же быть 
-
                     DateTime? utcLastDone = DateTime.Parse(Date_LastDone.Text).ToUniversalTime();
 
                     if (utcLastDone != null)
                     {
                         editedRepTask.LastDone = utcLastDone;
                         editedRepTask.Deadline = (utcLastDone + TimeSpan.FromDays(editedRepTask.Interval))?.ToUniversalTime();
-
                     }
                 }
 
@@ -171,8 +167,6 @@ namespace organizer
                 }
             }
 
-
-            // Не уверена, что это было нужно, но я написала
             
             if (editedTask != null)     // Для обычной задачи
             {
@@ -226,7 +220,6 @@ namespace organizer
                 }
                 if (errors != "")
                 {
-
                     MessageBox.Show(errors);
                     return;
                 }
