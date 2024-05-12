@@ -69,9 +69,22 @@ namespace organizer
                 if (errors != "") { MessageBox.Show(errors); return; }
                 else
                 {
-                    main.SetRepeatable(repTask);//test
+                    using (var dbContext = new OrganizerDbContext())
+                    {
+                        DateTime? utcLastDone = repTask.LastDone?.ToUniversalTime();
+                        DateTime? utcDeadline = repTask.Deadline?.ToUniversalTime();
+                        if (utcLastDone != null)
+                        {
+                            repTask.LastDone = utcLastDone;
+                        }
+                        if (utcDeadline != null)
+                        {
+                            repTask.Deadline = utcDeadline;
+                        }
+                        dbContext.RepeatableTasks.Add(repTask);
+                        dbContext.SaveChanges();
+                    }
                     //Добавить reptask в наши задачи Db.Add чето там, и обновить страницу.
-
                     Close();
                 }
             }
@@ -88,8 +101,17 @@ namespace organizer
                 if (errors != "") { MessageBox.Show(errors); return; }
                 else
                 {
-                    main.SetPlain(newTask);//test
-                    //Добавить newtask в задачи аналогично
+                    using (var dbContext = new OrganizerDbContext())
+                    {
+                        DateTime? utcDeadline = newTask.Deadline?.ToUniversalTime();
+
+                        if (utcDeadline != null)
+                        {
+                            newTask.Deadline = utcDeadline;
+                        }
+                        dbContext.Tasks.Add(newTask);
+                        dbContext.SaveChanges();
+                    }
 
                     Close();
                 }
@@ -122,3 +144,4 @@ namespace organizer
         }
     }
 }
+
