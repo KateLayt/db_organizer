@@ -22,58 +22,49 @@ namespace organizer
         {
             InitializeComponent();
 
-            Plate1.RepresentedTask = new RepeatableTask { Name = "Повторяемая задача 2", Status = "Ожидает выполнения", Interval = 10, LastDone = DateTime.Today };
-            Plate2.RepresentedTask = new Task { Name = "Задача 3", Status = "Не завершено" };
-            Plate3.RepresentedTask =  new Task { Name = "Задача со сроком", Status = "Выполняется", Deadline = new DateTime(2023, 10, 10) };
-            Plate1.Update();
-            Plate2.Update();
-            Plate3.Update();
-
             // Я так поняла сюда запихивать штуки так что запихнула.
 
-            //foreach(Task tsk in MANUALDATA.tsklst)
-            //{
-            //    PlainTaskPlate taskPlate = new PlainTaskPlate();
-            //    taskPlate.RepresentedTask = tsk;
-            //    View_TaskList.Children.Add(taskPlate);
-            //    taskPlate.Update();
-
-            //}
             Update();
             
         }
 
         public void Update()
         {
-            using (OrganizerDbContext dbContext = new OrganizerDbContext())
+            View_TaskList.Children.Clear();
+
+            foreach (Task tsk in MANUALDATA.tsklst)
             {
-                foreach (Task task in dbContext.Tasks)
-                {
-                    PlainTaskPlate taskPlate = new PlainTaskPlate();
-                    taskPlate.RepresentedTask = task;
-                    View_TaskList.Children.Add(taskPlate);
-                    taskPlate.Update();
-                }
-
-                foreach (RepeatableTask task in dbContext.RepeatableTasks)
-                {
-                    RepeatableTaskPlate taskPlate = new RepeatableTaskPlate();
-                    taskPlate.RepresentedTask = task;
-                    View_TaskList.Children.Add(taskPlate);
-                    taskPlate.Update();
-                }
+                PlainTaskPlate taskPlate = new PlainTaskPlate();
+                taskPlate.RepresentedTask = tsk;
+                View_TaskList.Children.Add(taskPlate);
+                taskPlate.Update();
             }
-        }
+            foreach (RepeatableTask tsk in MANUALDATA.reptsklst)
+            {
+                RepeatableTaskPlate taskPlate = new RepeatableTaskPlate();
+                taskPlate.RepresentedTask = tsk;
+                View_TaskList.Children.Add(taskPlate);
+                taskPlate.Update();
+            }
 
-        public void SetRepeatable(RepeatableTask newTask)
-        {
-            Plate1.RepresentedTask = newTask;
-            Plate1.Update();
-        }
-        public void SetPlain(Task newTask)
-        {
-            Plate2.RepresentedTask = newTask;
-            Plate2.Update();
+            //using (OrganizerDbContext dbContext = new OrganizerDbContext())
+            //{
+            //    foreach (Task task in dbContext.Tasks)
+            //    {
+            //        PlainTaskPlate taskPlate = new PlainTaskPlate();
+            //        taskPlate.RepresentedTask = task;
+            //        View_TaskList.Children.Add(taskPlate);
+            //        taskPlate.Update();
+            //    }
+
+            //    foreach (RepeatableTask task in dbContext.RepeatableTasks)
+            //    {
+            //        RepeatableTaskPlate taskPlate = new RepeatableTaskPlate();
+            //        taskPlate.RepresentedTask = task;
+            //        View_TaskList.Children.Add(taskPlate);
+            //        taskPlate.Update();
+            //    }
+            //}
         }
 
         /* private void Btn_AddTask_Click(object sender, RoutedEventArgs e)

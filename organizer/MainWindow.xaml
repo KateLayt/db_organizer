@@ -8,17 +8,15 @@
         Title="Мои задачи" Height="450" Width="1000" Background="#FF1D1C1C" Foreground="White" Icon="/free-icon-user-747376.png">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="9*"/>
-            <ColumnDefinition Width="116*"/>
+            <ColumnDefinition Width="177*"/>
+            <ColumnDefinition Width="404*"/>
+            <ColumnDefinition Width="419*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="Btn_MainPage" Content="Главная" HorizontalAlignment="Left" Margin="28,61,0,0" Width="134" Click="Btn_MainPage_Click" Height="38" VerticalAlignment="Top" FontFamily="Century Gothic" FontWeight="Bold" BorderBrush="#FF4E4E4E" Foreground="White" Background="#FF5C5C5C" Grid.ColumnSpan="2"/>
-        <Button x:Name="Btn_ListPage" Content="Списки" HorizontalAlignment="Left" Margin="28,129,0,0" Width="134" Click="Btn_ListPage_Click" Height="38" VerticalAlignment="Top" FontFamily="Century Gothic" FontWeight="Bold" Background="#FF5C5C5C" BorderBrush="#FF4E4E4E" Foreground="White" Grid.ColumnSpan="2"/>
-        <Button x:Name="Btn_AccountPage" Content="Аккаунт" HorizontalAlignment="Left" Margin="28,0,0,0" Width="134" Click="Btn_AccountPage_Click" Height="38" VerticalAlignment="Center" FontFamily="Century Gothic" FontWeight="Bold" Background="#FF5C5C5C" BorderBrush="#FF4E4E4E" Foreground="White" Grid.ColumnSpan="2"/>
-        <local:RepeatableTaskPlate x:Name="Plate1" HorizontalAlignment="Left" Margin="109,37,0,0" VerticalAlignment="Top" Height="122" Width="306" Grid.Column="1"/>
-        <local:PlainTaskPlate x:Name="Plate2" HorizontalAlignment="Left" Margin="109,171,0,0" VerticalAlignment="Top" Height="112" Width="306" Grid.Column="1"/>
-        <local:PlainTaskPlate x:Name="Plate3" HorizontalAlignment="Left" Margin="109,297,0,0" VerticalAlignment="Top" Height="107" Width="306" Grid.Column="1"/>
-        <Button x:Name="Btn_AddTask" Content="Создать задачу" HorizontalAlignment="Left" Margin="28,313,0,0" Width="134" Click="Btn_AddTask_Click" Height="38" VerticalAlignment="Top" FontFamily="Century Gothic" FontWeight="Bold" Background="#FF5C5C5C" BorderBrush="#FF4E4E4E" Foreground="White" Grid.ColumnSpan="2"/>
-        <ScrollViewer Margin="520,36,75,31" Grid.Column="1">
+        <Button x:Name="Btn_MainPage" Content="Главная" HorizontalAlignment="Left" Margin="28,61,0,0" Width="134" Click="Btn_MainPage_Click" Height="38" VerticalAlignment="Top" FontFamily="Century Gothic" FontWeight="Bold" BorderBrush="#FF4E4E4E" Foreground="White" Background="#FF5C5C5C" />
+        <Button x:Name="Btn_ListPage" Content="Списки" HorizontalAlignment="Left" Margin="28,129,0,0" Width="134" Click="Btn_ListPage_Click" Height="38" VerticalAlignment="Top" FontFamily="Century Gothic" FontWeight="Bold" Background="#FF5C5C5C" BorderBrush="#FF4E4E4E" Foreground="White" />
+        <Button x:Name="Btn_AccountPage" Content="Аккаунт" HorizontalAlignment="Left" Margin="28,0,0,0" Width="134" Click="Btn_AccountPage_Click" Height="38" VerticalAlignment="Center" FontFamily="Century Gothic" FontWeight="Bold" Background="#FF5C5C5C" BorderBrush="#FF4E4E4E" Foreground="White" />
+        <Button x:Name="Btn_AddTask" Content="Создать задачу" HorizontalAlignment="Left" Margin="28,313,0,0" Width="134" Click="Btn_AddTask_Click" Height="38" VerticalAlignment="Top" FontFamily="Century Gothic" FontWeight="Bold" Background="#FF5C5C5C" BorderBrush="#FF4E4E4E" Foreground="White" />
+        <ScrollViewer Margin="19,34,36,33" Grid.Column="2">
             <StackPanel x:Name="View_TaskList">
                 <local:PlainTaskPlate Width="300" Height="100"></local:PlainTaskPlate>
                 <local:PlainTaskPlate Width="300" Height="100"></local:PlainTaskPlate>
@@ -26,6 +24,18 @@
                 <local:PlainTaskPlate Width="300" Height="100"></local:PlainTaskPlate>
             </StackPanel>
         </ScrollViewer>
-
+        <ScrollViewer Margin="19,34,36,33" Grid.Column="1">
+            <StackPanel x:Name="View_Lists">
+                <local:TaskGroupPlate></local:TaskGroupPlate>
+                <local:TaskGroupPlate></local:TaskGroupPlate>
+                <local:TaskGroupPlate></local:TaskGroupPlate>
+                <local:TaskGroupPlate></local:TaskGroupPlate>
+                <local:TaskGroupPlate></local:TaskGroupPlate>
+                <local:TaskGroupPlate></local:TaskGroupPlate>
+                <local:TaskGroupPlate></local:TaskGroupPlate>
+                <local:TaskGroupPlate></local:TaskGroupPlate>
+                <local:TaskGroupPlate></local:TaskGroupPlate>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>

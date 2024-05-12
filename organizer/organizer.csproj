@@ -9,8 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="0d447ec6d16cb3d80a8ce16819dc7091.jpg" />
+    <None Remove="37b49f1b66df93579681cf3b5f090d15.jpg" />
     <None Remove="990af028ef69fafd2627992cbbd7cd22.png" />
     <None Remove="free-icon-user-747376.png" />
+    <None Remove="LightFrame.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,8 +26,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="0d447ec6d16cb3d80a8ce16819dc7091.jpg" />
+    <Resource Include="37b49f1b66df93579681cf3b5f090d15.jpg" />
     <Resource Include="990af028ef69fafd2627992cbbd7cd22.png" />
     <Resource Include="free-icon-user-747376.png" />
+    <Resource Include="LightFrame.png" />
   </ItemGroup>
 
 </Project>

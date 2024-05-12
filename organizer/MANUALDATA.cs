@@ -17,12 +17,23 @@ namespace organizer
         public static Task ddlinedTsk2 = new Task { Name = "Несрочная задача", Status = "Ожидание", Deadline = new DateTime(2024, 5, 16) };
         public static RepeatableTask reptsk1 = new RepeatableTask { Name = "Повторяемая задача", Status = "В работе", Interval = 10, LastDone = DateTime.Today };
         public static List<Models.Task> tsklst = new List<Models.Task>();
+        public static List<Models.RepeatableTask> reptsklst = new List<Models.RepeatableTask>();
+
+        public static TaskGroup tskgrp = new TaskGroup { Name = "Группа 1", IsBuiltin = false, Description = "У меня есть описание" };
 
         static MANUALDATA()
         {
             tsklst.Add(tsk1);
             tsklst.Add(ddlinedTsk1);
             tsklst.Add(ddlinedTsk2);
+            reptsklst.Add(reptsk1);
+
+            tskgrp.Tasks = new List<Models.Task>
+            {
+                tsk1,
+                ddlinedTsk1,
+                ddlinedTsk2
+            };
         }
     }
 }

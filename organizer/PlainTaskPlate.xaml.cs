@@ -38,11 +38,15 @@ namespace organizer
             Txt_TaskStatus.Text = RepresentedTask.Status;
             if (RepresentedTask.Deadline is null)
             {
+                this.Height = 85;
+                this.Width = 300;
                 Txt_Deadline.Visibility = Visibility.Collapsed;
                 Txt_DeadlinePretxt.Visibility = Visibility.Collapsed;
             }
             else
             {
+                this.Height = 110;
+                this.Width = 300;
                 Txt_Deadline.Visibility = Visibility.Visible;
                 Txt_DeadlinePretxt.Visibility = Visibility.Visible;
                 Txt_Deadline.Text = DateConverter.RepresentDate(RepresentedTask.Deadline);
@@ -51,7 +55,9 @@ namespace organizer
 
         private void Btn_TaskDone_Click(object sender, RoutedEventArgs e)
         {
-
+            RepresentedTask.Status = "Завершено";
+            //тут в бд изменение статуса
+            Txt_TaskStatus.Text = RepresentedTask.Status;
         }
 
         private void Btn_TaskEdit_Click(object sender, RoutedEventArgs e)

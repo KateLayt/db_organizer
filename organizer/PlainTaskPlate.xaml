@@ -5,14 +5,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:organizer"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="300">
+             d:DesignHeight="110" d:DesignWidth="300">
     <Grid Background="#FF262626">
-        <Button x:Name="Btn_TaskEdit" Content="Изменить" HorizontalAlignment="Left" Margin="14,63,0,0" VerticalAlignment="Top" Height="28" Width="88" Click="Btn_TaskEdit_Click" FontFamily="Century Gothic" Background="#FF5C5C5C" Foreground="White" BorderBrush="#FF4E4E4E"/>
-        <Button x:Name="Btn_TaskDone" Content="Готово" HorizontalAlignment="Left" Margin="200,63,0,0" VerticalAlignment="Top" Height="28" Width="86" Click="Btn_TaskDone_Click" FontFamily="Century Gothic" Background="#FF5C5C5C" Foreground="White" BorderBrush="#FF4E4E4E"/>
-        <TextBlock x:Name="Txt_TaskName" HorizontalAlignment="Left" Margin="15,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Height="16" FontFamily="Century Gothic" FontWeight="Bold" Foreground="White"><Run Language="ru-ru" Text="Название задачи"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
-        <TextBlock x:Name="Txt_TaskStatus" HorizontalAlignment="Left" Margin="150,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="136" TextAlignment="Right" FontFamily="Century Gothic" Foreground="White"><Run Text="Статус"/><Run Language="ru-ru" Text=" задачи"/><LineBreak/><Run/></TextBlock>
-        <TextBlock x:Name="Txt_DeadlinePretxt" HorizontalAlignment="Left" Margin="15,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" Height="16" FontFamily="Century Gothic" Foreground="White"><Run Language="ru-ru" Text="Крайний срок:"/><LineBreak/><Run/></TextBlock>
-        <TextBlock x:Name="Txt_Deadline" HorizontalAlignment="Left" Margin="112,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="90" FontFamily="Century Gothic" Foreground="White"><Run Text="дата"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <StackPanel>
+            <WrapPanel HorizontalAlignment="Left" Margin="15,15,0,0">
+                <TextBlock x:Name="Txt_TaskName" TextWrapping="Wrap" HorizontalAlignment="Left" Width="148" Height="16" FontFamily="Century Gothic" FontWeight="Bold" Foreground="White"><Run Language="ru-ru" Text="Название задачи"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+                <TextBlock x:Name="Txt_TaskStatus" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="118" TextAlignment="Right" FontFamily="Century Gothic" Foreground="White"><Run Text="Статус"/><Run Language="ru-ru" Text=" задачи"/></TextBlock>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Left" Margin="15,10,0,0">
+                <TextBlock x:Name="Txt_DeadlinePretxt" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" FontFamily="Century Gothic" Foreground="White" HorizontalAlignment="Left" Width="97"><Run Language="ru-ru" Text="Крайний срок:"/></TextBlock>
+                <TextBlock x:Name="Txt_Deadline" HorizontalAlignment="Left" TextWrapping="Wrap" Width="90" FontFamily="Century Gothic" Foreground="White"><Run Text="дата"/></TextBlock>
+            </WrapPanel>
+            <WrapPanel Margin="15,10,10,0">
+                <Button x:Name="Btn_TaskEdit" Content="Изменить" Click="Btn_TaskEdit_Click" FontFamily="Century Gothic" Background="#FF5C5C5C" Foreground="White" BorderBrush="#FF4E4E4E" Height="28" Width="90" HorizontalAlignment="Left"/>
+                <Button x:Name="Btn_TaskDone" Content="Готово" Margin="95,0,0,0" Click="Btn_TaskDone_Click" FontFamily="Century Gothic" Background="#FF5C5C5C" Foreground="White" BorderBrush="#FF4E4E4E" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="90"/>
+            </WrapPanel>
+        </StackPanel>
 
     </Grid>
 </UserControl>

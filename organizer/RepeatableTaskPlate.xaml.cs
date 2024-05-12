@@ -35,6 +35,8 @@ namespace organizer
             {
                 RepresentedTask = MANUALDATA.reptsk1;
             }
+            this.Height = 130;
+            this.Width = 300;
             Txt_TaskName.Text = RepresentedTask.Name;
             Txt_TaskStatus.Text = RepresentedTask.Status;
             Txt_RepeatEvery.Text = DateConverter.RepresentDays(RepresentedTask.Interval);

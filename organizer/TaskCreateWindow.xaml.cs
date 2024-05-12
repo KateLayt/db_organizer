@@ -34,7 +34,6 @@ namespace organizer
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(Txt_RepeatEvery.Text, "[^0-9]"))
             {
-                MessageBox.Show("Please enter only numbers.");
                 Txt_RepeatEvery.Text = Txt_RepeatEvery.Text.Remove(Txt_RepeatEvery.Text.Length - 1);
             }
         }
@@ -52,7 +51,8 @@ namespace organizer
                 RepeatableTask repTask = new()
                 {
                     Name = Txt_TaskName.Text,
-                    Interval = Int32.Parse(Txt_RepeatEvery.Text)
+                    Interval = Int32.Parse(Txt_RepeatEvery.Text),
+                    Status = "Новая"
                 };
 
                 if (repTask.Name.Length < 3 || repTask.Name.Length > 20) errors += "Название задачи должно содержать от 3 до 20 символов.\n";
@@ -69,23 +69,24 @@ namespace organizer
                 if (errors != "") { MessageBox.Show(errors); return; }
                 else
                 {
-                    using (var dbContext = new OrganizerDbContext())
-                    {
-                        DateTime? utcLastDone = repTask.LastDone?.ToUniversalTime();
-                        DateTime? utcDeadline = repTask.Deadline?.ToUniversalTime();
-                        if (utcLastDone != null)
-                        {
-                            repTask.LastDone = utcLastDone;
-                        }
-                        if (utcDeadline != null)
-                        {
-                            repTask.Deadline = utcDeadline;
-                        }
-                        dbContext.RepeatableTasks.Add(repTask);
-                        dbContext.SaveChanges();
-                    }
+                    //using (var dbContext = new OrganizerDbContext())
+                    //{
+                    //    DateTime? utcLastDone = repTask.LastDone?.ToUniversalTime();
+                    //    DateTime? utcDeadline = repTask.Deadline?.ToUniversalTime();
+                    //    if (utcLastDone != null)
+                    //    {
+                    //        repTask.LastDone = utcLastDone;
+                    //    }
+                    //    if (utcDeadline != null)
+                    //    {
+                    //        repTask.Deadline = utcDeadline;
+                    //    }
+                    //    dbContext.RepeatableTasks.Add(repTask);
+                    //    dbContext.SaveChanges();
+                    //}
                     //Добавить reptask в наши задачи Db.Add чето там, и обновить страницу.
 
+                    MANUALDATA.reptsklst.Add(repTask);
                     main.Update();
                     Close();
                 }
@@ -97,24 +98,29 @@ namespace organizer
                 if (newTask.Name.Length < 3 || newTask.Name.Length > 20) errors += "Название задачи должно содержать от 3 до 20 символов.\n";
                 if (_taskType == "Deadlined")
                 {
-                    newTask.Deadline = DateTime.Parse(Date_Deadline.Text);
-                    if (newTask.Deadline < DateTime.Today) errors += "Крайний срок не может быть раньше сегодняшнего дня.";
+                    if (String.IsNullOrEmpty(Date_Deadline.Text)) errors += "Не установлен крайний срок";
+                    else
+                    {
+                        if (DateTime.Parse(Date_Deadline.Text) < DateTime.Today) errors += "Крайний срок не может быть раньше сегодняшнего дня.";
+                        else newTask.Deadline = DateTime.Parse(Date_Deadline.Text);
+                    }
                 }
                 if (errors != "") { MessageBox.Show(errors); return; }
                 else
                 {
-                    using (var dbContext = new OrganizerDbContext())
-                    {
-                        DateTime? utcDeadline = newTask.Deadline?.ToUniversalTime();
+                    //using (var dbContext = new OrganizerDbContext())
+                    //{
+                    //    DateTime? utcDeadline = newTask.Deadline?.ToUniversalTime();
 
-                        if (utcDeadline != null)
-                        {
-                            newTask.Deadline = utcDeadline;
-                        }
-                        dbContext.Tasks.Add(newTask);
-                        dbContext.SaveChanges();
-                    }
+                    //    if (utcDeadline != null)
+                    //    {
+                    //        newTask.Deadline = utcDeadline;
+                    //    }
+                    //    dbContext.Tasks.Add(newTask);
+                    //    dbContext.SaveChanges();
+                    //}
 
+                    MANUALDATA.tsklst.Add(newTask);
                     main.Update();
                     Close();
                 }
@@ -124,6 +130,8 @@ namespace organizer
         private void Rb_Repeatable_Checked(object sender, RoutedEventArgs e)
         {
             _taskType = "Repeatable";
+            this.Height = 360;
+            this.Width = 260;
             Pnl_RepeatEvery.Visibility = Visibility.Visible;
             Pnl_LastDone.Visibility = Visibility.Visible;
             Pnl_Deadline.Visibility = Visibility.Collapsed;
@@ -132,6 +140,8 @@ namespace organizer
         private void Rb_Deadlined_Checked(object sender, RoutedEventArgs e)
         {
             _taskType = "Deadlined";
+            this.Height = 310;
+            this.Width = 260;
             Pnl_Deadline.Visibility = Visibility.Visible;
             Pnl_LastDone.Visibility = Visibility.Collapsed;
             Pnl_RepeatEvery.Visibility = Visibility.Collapsed;
@@ -140,6 +150,8 @@ namespace organizer
         private void Rb_Plain_Checked(object sender, RoutedEventArgs e)
         {
             _taskType = "Plain";
+            this.Height = 250;
+            this.Width = 260;
             if (Pnl_Deadline == null) return;
             Pnl_Deadline.Visibility = Visibility.Collapsed;
             Pnl_LastDone.Visibility = Visibility.Collapsed;
