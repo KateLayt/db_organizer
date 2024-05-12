@@ -101,7 +101,7 @@ namespace organizer {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/organizer;V1.0.0.0;component/repeatabletaskplate.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/organizer;component/repeatabletaskplate.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\RepeatableTaskPlate.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

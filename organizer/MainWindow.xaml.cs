@@ -29,14 +29,35 @@ namespace organizer
             Plate2.Update();
             Plate3.Update();
 
-            foreach(Task tsk in MANUALDATA.tsklst)
-            {
-                PlainTaskPlate taskPlate = new PlainTaskPlate();
-                taskPlate.RepresentedTask = tsk;
-                View_TaskList.Children.Add(taskPlate);
-                taskPlate.Update();
+            // Я так поняла сюда запихивать штуки так что запихнула.
 
+            //foreach(Task tsk in MANUALDATA.tsklst)
+            //{
+            //    PlainTaskPlate taskPlate = new PlainTaskPlate();
+            //    taskPlate.RepresentedTask = tsk;
+            //    View_TaskList.Children.Add(taskPlate);
+            //    taskPlate.Update();
+
+            //}
+            using (OrganizerDbContext dbContext = new OrganizerDbContext())
+            {
+                foreach (Task task in dbContext.Tasks)
+                {
+                    PlainTaskPlate taskPlate = new PlainTaskPlate();
+                    taskPlate.RepresentedTask = task;
+                    View_TaskList.Children.Add(taskPlate);
+                    taskPlate.Update();
+                }
+
+                foreach (RepeatableTask task in  dbContext.RepeatableTasks)
+                {
+                    RepeatableTaskPlate taskPlate = new RepeatableTaskPlate();
+                    taskPlate.RepresentedTask = task;
+                    View_TaskList.Children.Add(taskPlate);
+                    taskPlate.Update();
+                }
             }
+            
         }
 
         public void SetRepeatable(RepeatableTask newTask)
