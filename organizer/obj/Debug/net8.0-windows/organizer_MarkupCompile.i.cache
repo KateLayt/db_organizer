@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Uni\db_organizer\organizer\App.xaml
-6-1277505625
+8-726392078
 
-26791970289
+28617701284
 212407935835
-MainWindow.xaml;PlainTaskPlate.xaml;RepeatableTaskPlate.xaml;TaskCreateWindow.xaml;TaskEditWindow.xaml;TaskGroupPlate.xaml;
+GroupCreateWindow.xaml;GroupEditWindow.xaml;MainWindow.xaml;PlainTaskPlate.xaml;RepeatableTaskPlate.xaml;TaskCreateWindow.xaml;TaskEditWindow.xaml;TaskGroupPlate.xaml;
 
 True
 

@@ -33,4 +33,13 @@
     <Resource Include="LightFrame.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="GroupCreateWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GroupEditWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

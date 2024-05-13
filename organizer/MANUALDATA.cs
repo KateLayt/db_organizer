@@ -20,6 +20,9 @@ namespace organizer
         public static List<Models.RepeatableTask> reptsklst = new List<Models.RepeatableTask>();
 
         public static TaskGroup tskgrp = new TaskGroup { Name = "Группа 1", IsBuiltin = false, Description = "У меня есть описание" };
+        public static TaskGroup tskgrp1 = new TaskGroup { Name = "Группа 2", IsBuiltin = false };
+        public static TaskGroup tskgrp2 = new TaskGroup { Name = "Группа 3", IsBuiltin = false, Description = "У меня тоже есть описание" };
+        public static List<TaskGroup> groups = new List<TaskGroup>();
 
         static MANUALDATA()
         {
@@ -27,6 +30,12 @@ namespace organizer
             tsklst.Add(ddlinedTsk1);
             tsklst.Add(ddlinedTsk2);
             reptsklst.Add(reptsk1);
+            tskgrp1.Tasks = new List<Task>{ tsk1 };
+            tskgrp2.Tasks = new List<Task>{ ddlinedTsk1 };
+
+            groups.Add(tskgrp);
+            groups.Add(tskgrp1);
+            groups.Add(tskgrp2);
 
             tskgrp.Tasks = new List<Models.Task>
             {

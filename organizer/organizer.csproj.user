@@ -24,6 +24,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="GroupCreateWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -34,6 +37,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="TaskCreateWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GroupEditWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="TaskEditWindow.xaml">

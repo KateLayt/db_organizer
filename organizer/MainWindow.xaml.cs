@@ -1,5 +1,6 @@
 ﻿using organizer.Models;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,6 +19,7 @@ namespace organizer
     /// </summary>
     public partial class MainWindow : Window
     {
+        public TaskGroup? displayedGroup;
         public MainWindow()
         {
             InitializeComponent();
@@ -28,23 +30,57 @@ namespace organizer
             
         }
 
-        public void Update()
+        public void UpdateTasks()
         {
             View_TaskList.Children.Clear();
-
-            foreach (Task tsk in MANUALDATA.tsklst)
+            ICollection<Task>? tasks;
+            ICollection<RepeatableTask>? reptasks;
+            if (displayedGroup == null)
             {
-                PlainTaskPlate taskPlate = new PlainTaskPlate();
-                taskPlate.RepresentedTask = tsk;
-                View_TaskList.Children.Add(taskPlate);
-                taskPlate.Update();
+                //тут можно сделать или отдельный такой список всех задач, с заранее известным айдишником
+                //ну или выводить их вложенными циклами, но тогда там будет запара с плашкой
+                Txt_DispListName.Text = "Все задачи";
+                Txt_DispListDescription.Visibility = Visibility.Collapsed;
+                tasks = MANUALDATA.tsklst;
+                reptasks = MANUALDATA.reptsklst;
             }
-            foreach (RepeatableTask tsk in MANUALDATA.reptsklst)
+
+            else
             {
-                RepeatableTaskPlate taskPlate = new RepeatableTaskPlate();
-                taskPlate.RepresentedTask = tsk;
-                View_TaskList.Children.Add(taskPlate);
-                taskPlate.Update();
+                Txt_DispListName.Text = displayedGroup.Name;
+                if (!String.IsNullOrEmpty(displayedGroup.Description))
+                {
+                    Txt_DispListDescription.Visibility = Visibility.Visible;
+                    Txt_DispListDescription.Text = displayedGroup.Description;
+                }
+                else
+                {
+                    Txt_DispListDescription.Visibility = Visibility.Collapsed;
+                }
+                tasks = displayedGroup.Tasks;
+                reptasks = displayedGroup.RepeatableTasks;
+            }
+
+            if (tasks != null)
+            {
+                foreach (Task tsk in tasks)
+                {
+                    PlainTaskPlate taskPlate = new PlainTaskPlate();
+                    taskPlate.RepresentedTask = tsk;
+                    View_TaskList.Children.Add(taskPlate);
+                    taskPlate.Update();
+                }
+            }
+
+            if (reptasks != null)
+            {
+                foreach (RepeatableTask tsk in reptasks!)
+                {
+                    RepeatableTaskPlate taskPlate = new RepeatableTaskPlate();
+                    taskPlate.RepresentedTask = tsk;
+                    View_TaskList.Children.Add(taskPlate);
+                    taskPlate.Update();
+                }
             }
 
             //using (OrganizerDbContext dbContext = new OrganizerDbContext())
@@ -65,6 +101,24 @@ namespace organizer
             //        taskPlate.Update();
             //    }
             //}
+        }
+
+        public void UpdateLists()
+        {
+            View_Lists.Children.Clear();
+            foreach (TaskGroup tg in MANUALDATA.groups)
+            {
+                TaskGroupPlate plate = new(this);
+                plate.representedGroup = tg;
+                View_Lists.Children.Add(plate);
+                plate.Update();
+            }
+        }
+
+        public void Update()
+        {
+            UpdateLists();
+            UpdateTasks();
         }
 
         /* private void Btn_AddTask_Click(object sender, RoutedEventArgs e)
@@ -101,7 +155,18 @@ namespace organizer
 
         private void Btn_AddTask_Click(object sender, RoutedEventArgs e)
         {
-            TaskCreateWindow editWind = new TaskCreateWindow(this);
+            TaskCreateWindow editWind = new(this, displayedGroup);
+            editWind.Show();
+        }
+        private void Btn_AddGroup_Click(object sender, RoutedEventArgs e)
+        {
+            GroupCreateWindow createWind = new(this);
+            createWind.Show();
+        }
+        private void Btn_EditGroup_Click(object sender, RoutedEventArgs e)
+        {
+            if (displayedGroup == null) { MessageBox.Show("Эту группу нельзя изменить"); return; }
+            GroupEditWindow editWind = new(displayedGroup, this);
             editWind.Show();
         }
     }

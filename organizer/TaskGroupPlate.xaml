@@ -11,7 +11,7 @@
             <ColumnDefinition Width="39*"/>
             <ColumnDefinition Width="11*"/>
         </Grid.ColumnDefinitions>
-        <Button Background="#FF3F3F3F" Grid.ColumnSpan="2" MinHeight="60" MaxHeight="60" MinWidth="300" MaxWidth="300"/>
+        <Button Background="#FF3F3F3F" Grid.ColumnSpan="2" MinHeight="60" MaxHeight="60" MinWidth="300" MaxWidth="300" Click="Plate_Click"/>
         <TextBlock x:Name ="Txt_GroupName" Text="Название группы" Margin="15,0,0,0" VerticalAlignment="Center"  FontFamily="Century Gothic" Foreground="White" FontSize="16"/>
         <TextBlock x:Name="Txt_TaskCounter" Text="num" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" FontFamily="Century Gothic" Foreground="White" FontSize="16" Width="40" TextAlignment="Right" Grid.Column="1"/>
     </Grid>

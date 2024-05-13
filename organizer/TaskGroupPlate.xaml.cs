@@ -22,9 +22,11 @@ namespace organizer
     public partial class TaskGroupPlate : UserControl
     {
         public TaskGroup representedGroup;
-        public TaskGroupPlate()
+        MainWindow main;
+        public TaskGroupPlate(MainWindow sender)
         {
             if (representedGroup == null) representedGroup = MANUALDATA.tskgrp;
+            main = sender;
             InitializeComponent();
             Update();
         }
@@ -33,6 +35,12 @@ namespace organizer
         {
             Txt_GroupName.Text = representedGroup.Name;
             Txt_TaskCounter.Text = ((representedGroup.Tasks?.Count() ?? 0) + (representedGroup.RepeatableTasks?.Count() ?? 0)).ToString();
+        }
+
+        private void Plate_Click(object sender, RoutedEventArgs e)
+        {
+            main.displayedGroup = representedGroup;
+            main.Update();
         }
     }
 }

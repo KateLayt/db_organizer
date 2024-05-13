@@ -23,11 +23,13 @@ namespace organizer
     public partial class TaskCreateWindow : Window
     {
         private string _taskType = "Plain";
+        private TaskGroup? designatedGroup;
         public MainWindow main;
-        public TaskCreateWindow(MainWindow sender)
+        public TaskCreateWindow(MainWindow sender, TaskGroup? tg)
         {
             InitializeComponent();
             main = sender;
+            designatedGroup = tg;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -86,7 +88,12 @@ namespace organizer
                     //}
                     //Добавить reptask в наши задачи Db.Add чето там, и обновить страницу.
 
-                    MANUALDATA.reptsklst.Add(repTask);
+                    if (designatedGroup == null) MANUALDATA.reptsklst.Add(repTask);
+                    else if (designatedGroup.RepeatableTasks == null)
+                    {
+                        designatedGroup.RepeatableTasks = new List<RepeatableTask> { repTask };
+                    }
+                    else designatedGroup.RepeatableTasks.Add(repTask);
                     main.Update();
                     Close();
                 }
@@ -120,7 +127,12 @@ namespace organizer
                     //    dbContext.SaveChanges();
                     //}
 
-                    MANUALDATA.tsklst.Add(newTask);
+                    if (designatedGroup == null) MANUALDATA.tsklst.Add(newTask);
+                    else if (designatedGroup.Tasks == null)
+                    {
+                        designatedGroup.Tasks = new List<Task> { newTask };
+                    }
+                    else designatedGroup.Tasks.Add(newTask);
                     main.Update();
                     Close();
                 }
