@@ -1,4 +1,5 @@
-﻿using organizer.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using organizer.Models;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,10 +25,7 @@ namespace organizer
         {
             InitializeComponent();
 
-            // Я так поняла сюда запихивать штуки так что запихнула.
-
-            Update();
-            
+            Update();  
         }
 
         public void UpdateTasks()
@@ -41,8 +39,15 @@ namespace organizer
                 //ну или выводить их вложенными циклами, но тогда там будет запара с плашкой
                 Txt_DispListName.Text = "Все задачи";
                 Txt_DispListDescription.Visibility = Visibility.Collapsed;
-                tasks = MANUALDATA.tsklst;
-                reptasks = MANUALDATA.reptsklst;
+
+
+                // ПОДКЛЮЧЕНИЕ БД
+
+                using (OrganizerDbContext dbContext = new OrganizerDbContext())
+                {
+                    tasks = dbContext.Tasks.ToArray();
+                    reptasks = dbContext.RepeatableTasks.ToArray();
+                }
             }
 
             else
@@ -57,8 +62,14 @@ namespace organizer
                 {
                     Txt_DispListDescription.Visibility = Visibility.Collapsed;
                 }
-                tasks = displayedGroup.Tasks;
-                reptasks = displayedGroup.RepeatableTasks;
+
+                using (OrganizerDbContext dbContext = new OrganizerDbContext())
+                {
+                    tasks = dbContext.Tasks.Where(g => g.TaskGroupID == displayedGroup.TaskGroupID).ToArray();
+                    reptasks = dbContext.RepeatableTasks.Where(g => g.TaskGroupID == displayedGroup.TaskGroupID).ToArray();
+                }
+                //tasks = displayedGroup.Tasks;
+                //reptasks = displayedGroup.RepeatableTasks;
             }
 
             if (tasks != null)
@@ -83,6 +94,9 @@ namespace organizer
                 }
             }
 
+            // ПОДКЛЮЧЕНИЕ БД
+            // пока выводятся во все группы
+
             //using (OrganizerDbContext dbContext = new OrganizerDbContext())
             //{
             //    foreach (Task task in dbContext.Tasks)
@@ -106,13 +120,26 @@ namespace organizer
         public void UpdateLists()
         {
             View_Lists.Children.Clear();
-            foreach (TaskGroup tg in MANUALDATA.groups)
+            //foreach (TaskGroup tg in MANUALDATA.groups)
+            //{
+            //    TaskGroupPlate plate = new(this);
+            //    plate.representedGroup = tg;
+            //    View_Lists.Children.Add(plate);
+            //    plate.Update();
+            //}
+
+
+            using (OrganizerDbContext dbContext = new OrganizerDbContext())
             {
-                TaskGroupPlate plate = new(this);
-                plate.representedGroup = tg;
-                View_Lists.Children.Add(plate);
-                plate.Update();
+                foreach (TaskGroup taskGroup in dbContext.TaskGroups)
+                {
+                    TaskGroupPlate plate = new(this);
+                    plate.representedGroup = taskGroup;
+                    View_Lists.Children.Add(plate);
+                    plate.Update();
+                }
             }
+
         }
 
         public void Update()
@@ -120,23 +147,6 @@ namespace organizer
             UpdateLists();
             UpdateTasks();
         }
-
-        /* private void Btn_AddTask_Click(object sender, RoutedEventArgs e)
-         {
-             // ОБЕРНУТЬ ВСЕ В TRY CATCH
-             // ПРОВЕРКИ ВНУТРИ БДШКИ
-             // Проверка Lbl_Name.Text 
-             if (!string.IsNullOrEmpty(Lbl_Name.Text))
-             {
-                 using (var dbContext = new OrganizerDbContext())
-                 {
-                     Task newTask = new Task { Name = Lbl_Name.Text, Status = "мда" };
-                     CONSOLE.Text = newTask.Name;
-                     dbContext.Tasks.Add(newTask);
-                     dbContext.SaveChanges();
-                 }
-             }
-    }*/
 
         private void Btn_AccountPage_Click(object sender, RoutedEventArgs e)
         {

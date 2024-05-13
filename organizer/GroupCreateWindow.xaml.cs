@@ -43,8 +43,17 @@ namespace organizer
                     Name = Txt_GroupName.Text,
                     Description = Txt_Description.Text
                 };
-                MANUALDATA.groups.Add(newGroup);
-                //Добавить новую группу в базу
+
+                // ПОДКЛЮЧЕНИЕ БД
+
+                using (var dbContext = new OrganizerDbContext())
+                {
+                    dbContext.TaskGroups.Add(newGroup);
+                    dbContext.SaveChanges();
+                }
+
+                //MANUALDATA.groups.Add(newGroup);
+
                 main.Update();
                 Close();
             }

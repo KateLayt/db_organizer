@@ -37,10 +37,18 @@ namespace organizer
 
         private void Btn_Delete_Click(object sender, RoutedEventArgs e)
         {
-            MANUALDATA.groups.Remove(editedGroup);
+            //MANUALDATA.groups.Remove(editedGroup);
             main.displayedGroup = null;
             main.Update();
-            //Здесь нужно удалить группу из базы
+
+            //ПОДКЛЮЧЕНИЕ БД
+
+            using (OrganizerDbContext dbContext = new OrganizerDbContext())
+            {
+                dbContext.Remove(editedGroup);
+                dbContext.SaveChanges();
+            }
+
             Close();
         }
 
@@ -55,6 +63,32 @@ namespace organizer
                 editedGroup.Name = Txt_GroupName.Text;
                 editedGroup.Description = Txt_Description.Text;
                 main.Update();
+
+                try
+                {
+
+                    // ПОДКЛЮЧЕНИЕ БД
+
+                    using (OrganizerDbContext dbContext = new OrganizerDbContext())
+                    {
+                        TaskGroup? groupFromDb = dbContext.TaskGroups.FirstOrDefault(t => t.TaskGroupID == editedGroup.TaskGroupID);
+                        if (groupFromDb != null)
+                        {
+                            groupFromDb.Name = editedGroup.Name;
+                            groupFromDb.Description = editedGroup.Description;
+
+                            dbContext.SaveChanges();
+                        }
+
+                        else
+                            errors += "Не удалось найти такую группу в базе.\n";
+                    }
+                    main.Update();
+                }
+                catch (Exception ex)
+                {
+                    errors += $"Ошибка при обновлении данных: {ex.Message}";
+                }
             }
         }
     }

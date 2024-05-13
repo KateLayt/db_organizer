@@ -73,11 +73,14 @@ namespace organizer
                 try
                 {
                     repeatableSender.Visibility = Visibility.Collapsed;
-                    //using (OrganizerDbContext dbContext = new OrganizerDbContext())
-                    //{
-                    //    dbContext.Remove(editedRepTask);
-                    //    dbContext.SaveChanges();
-                    //}
+
+                    // ПОДКЛЮЧЕНИЕ БД
+
+                    using (OrganizerDbContext dbContext = new OrganizerDbContext())
+                    {
+                        dbContext.Remove(editedRepTask);
+                        dbContext.SaveChanges();
+                    }
                 }
                 catch { }
             }
@@ -86,15 +89,18 @@ namespace organizer
                 try
                 {
                     plainSender.Visibility = Visibility.Collapsed;
-                    //using (OrganizerDbContext dbContext = new OrganizerDbContext())
-                    //{
-                    //    dbContext.Remove(editedTask);
-                    //    dbContext.SaveChanges();
-                    //}
-                } 
+
+                    // ПОДКЛЮЧЕНИЕ БД
+
+                    using (OrganizerDbContext dbContext = new OrganizerDbContext())
+                    {
+                        dbContext.Remove(editedTask);
+                        dbContext.SaveChanges();
+                    }
+                }
                 catch { }
             }
-            //Здесь нужно удалить соответствующую задачу (которая вверху проверяется на null) из базы
+
             Close();
         }
 
@@ -136,22 +142,25 @@ namespace organizer
                 {
                     try
                     {
-                        //using (OrganizerDbContext dbContext = new OrganizerDbContext())
-                        //{
-                        //    RepeatableTask? taskFromDb = dbContext.RepeatableTasks.FirstOrDefault(t => t.RepeatableTaskID == editedRepTask.RepeatableTaskID);
-                        //    if (taskFromDb != null)
-                        //    {
-                        //        taskFromDb.Name = editedRepTask.Name;
-                        //        taskFromDb.Interval = editedRepTask.Interval;
-                        //        taskFromDb.LastDone = editedRepTask.LastDone;
-                        //        taskFromDb.Deadline = editedRepTask.Deadline;
 
-                        //        dbContext.SaveChanges();
-                        //    }
+                        // ПОДКЛЮЧЕНИЕ БД
 
-                        //    else 
-                        //        errors += "Не удалось найти такую задачу в базе.\n";
-                        //}
+                        using (OrganizerDbContext dbContext = new OrganizerDbContext())
+                        {
+                            RepeatableTask? taskFromDb = dbContext.RepeatableTasks.FirstOrDefault(t => t.RepeatableTaskID == editedRepTask.RepeatableTaskID);
+                            if (taskFromDb != null)
+                            {
+                                taskFromDb.Name = editedRepTask.Name;
+                                taskFromDb.Interval = editedRepTask.Interval;
+                                taskFromDb.LastDone = editedRepTask.LastDone;
+                                taskFromDb.Deadline = editedRepTask.Deadline;
+
+                                dbContext.SaveChanges();
+                            }
+
+                            else
+                                errors += "Не удалось найти такую задачу в базе.\n";
+                        }
                         repeatableSender.Update();
                         Close();
                     }
@@ -196,20 +205,23 @@ namespace organizer
                 {
                     try
                     {
-                        //using (OrganizerDbContext dbContext = new OrganizerDbContext())
-                        //{
-                        //    Task? taskFromDb = dbContext.Tasks.FirstOrDefault(t => t.TaskID == editedTask.TaskID);
-                        //    if (taskFromDb != null)
-                        //    {
-                        //        taskFromDb.Name = editedTask.Name;
-                        //        taskFromDb.Deadline = editedTask.Deadline;
 
-                        //        dbContext.SaveChanges();
-                        //    }
+                        // ПОДКЛЮЧЕНИЕ БД
 
-                        //    else
-                        //        errors += "Не удалось найти такую задачу в базе.\n";
-                        //}
+                        using (OrganizerDbContext dbContext = new OrganizerDbContext())
+                        {
+                            Task? taskFromDb = dbContext.Tasks.FirstOrDefault(t => t.TaskID == editedTask.TaskID);
+                            if (taskFromDb != null)
+                            {
+                                taskFromDb.Name = editedTask.Name;
+                                taskFromDb.Deadline = editedTask.Deadline;
+
+                                dbContext.SaveChanges();
+                            }
+
+                            else
+                                errors += "Не удалось найти такую задачу в базе.\n";
+                        }
                         plainSender.Update();
                         Close();
                     }

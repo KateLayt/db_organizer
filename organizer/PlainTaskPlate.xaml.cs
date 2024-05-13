@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using Task = organizer.Models.Task;
 
 namespace organizer
@@ -55,9 +56,28 @@ namespace organizer
 
         private void Btn_TaskDone_Click(object sender, RoutedEventArgs e)
         {
-            RepresentedTask.Status = "Завершено";
-            //тут в бд изменение статуса
-            Txt_TaskStatus.Text = RepresentedTask.Status;
+            //RepresentedTask.Status = "Завершено";
+
+
+            //ПОДКЛЮЧЕНИЕ БД
+            try
+            {
+                using (OrganizerDbContext dbContext = new OrganizerDbContext())
+                {
+                    Task? taskFromDb = dbContext.Tasks.FirstOrDefault(t => t.TaskID == RepresentedTask.TaskID);
+                    if (taskFromDb != null)
+                    {
+                        taskFromDb.Status = "Завершено";
+                        dbContext.SaveChanges();
+                    }
+
+                    Txt_TaskStatus.Text = taskFromDb?.Status;
+                }
+            }
+            catch (Exception ex) { }
+
+
+            //Txt_TaskStatus.Text = RepresentedTask.Status;
         }
 
         private void Btn_TaskEdit_Click(object sender, RoutedEventArgs e)

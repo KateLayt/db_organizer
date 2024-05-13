@@ -34,7 +34,16 @@ namespace organizer
         public void Update()
         {
             Txt_GroupName.Text = representedGroup.Name;
-            Txt_TaskCounter.Text = ((representedGroup.Tasks?.Count() ?? 0) + (representedGroup.RepeatableTasks?.Count() ?? 0)).ToString();
+            //Txt_TaskCounter.Text = ((representedGroup.Tasks?.Count() ?? 0) + (representedGroup.RepeatableTasks?.Count() ?? 0)).ToString();
+            
+            // ПОДКЛЮЧЕНИЕ БД
+            
+            using (OrganizerDbContext dbContext = new OrganizerDbContext())
+            {
+                int tasks = dbContext.Tasks.Where(g => g.TaskGroup.Name == representedGroup.Name).Count();
+                int repTasks = dbContext.RepeatableTasks.Where(g => g.TaskGroup.Name == representedGroup.Name).Count();
+                Txt_TaskCounter.Text = (tasks + repTasks).ToString();
+            }
         }
 
         private void Plate_Click(object sender, RoutedEventArgs e)

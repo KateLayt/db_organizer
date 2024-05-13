@@ -57,7 +57,7 @@ namespace organizer
                     Status = "Новая"
                 };
 
-                if (repTask.Name.Length < 3 || repTask.Name.Length > 20) errors += "Название задачи должно содержать от 3 до 20 символов.\n";
+                if (repTask.Name.Length < 3 || repTask.Name.Length > 40) errors += "Название задачи должно содержать от 3 до 40 символов.\n";
 
                 if (repTask.Interval < 1 || repTask.Interval > 999) errors += "Число дней в интервале повторений должно быть не менее 1 и не более 999.\n";
 
@@ -71,29 +71,39 @@ namespace organizer
                 if (errors != "") { MessageBox.Show(errors); return; }
                 else
                 {
-                    //using (var dbContext = new OrganizerDbContext())
-                    //{
-                    //    DateTime? utcLastDone = repTask.LastDone?.ToUniversalTime();
-                    //    DateTime? utcDeadline = repTask.Deadline?.ToUniversalTime();
-                    //    if (utcLastDone != null)
-                    //    {
-                    //        repTask.LastDone = utcLastDone;
-                    //    }
-                    //    if (utcDeadline != null)
-                    //    {
-                    //        repTask.Deadline = utcDeadline;
-                    //    }
-                    //    dbContext.RepeatableTasks.Add(repTask);
-                    //    dbContext.SaveChanges();
-                    //}
-                    //Добавить reptask в наши задачи Db.Add чето там, и обновить страницу.
 
-                    if (designatedGroup == null) MANUALDATA.reptsklst.Add(repTask);
-                    else if (designatedGroup.RepeatableTasks == null)
+                    // ПОДКЛЮЧЕНИЕ БД
+
+                    using (var dbContext = new OrganizerDbContext())
                     {
-                        designatedGroup.RepeatableTasks = new List<RepeatableTask> { repTask };
+                        DateTime? utcLastDone = repTask.LastDone?.ToUniversalTime();
+                        DateTime? utcDeadline = repTask.Deadline?.ToUniversalTime();
+                        if (utcLastDone != null)
+                        {
+                            repTask.LastDone = utcLastDone;
+                        }
+                        if (utcDeadline != null)
+                        {
+                            repTask.Deadline = utcDeadline;
+                        }
+
+                        repTask.TaskGroupID = designatedGroup?.TaskGroupID  ?? - 4;
+
+                        dbContext.RepeatableTasks.Add(repTask);
+                        dbContext.SaveChanges();
                     }
-                    else designatedGroup.RepeatableTasks.Add(repTask);
+
+                    //Добавить reptask в наши задачи Db.Add чето там, и обновить страницу.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+                    //if (designatedGroup == null) MANUALDATA.reptsklst.Add(repTask);
+                    //else if (designatedGroup.RepeatableTasks == null)
+                    //{
+                    //    designatedGroup.RepeatableTasks = new List<RepeatableTask> { repTask };
+                    //}
+                    //else designatedGroup.RepeatableTasks.Add(repTask);
+
                     main.Update();
                     Close();
                 }
@@ -102,7 +112,7 @@ namespace organizer
             {
                 Task newTask = new() { Name = Txt_TaskName.Text, Status = "Не завершено"};
 
-                if (newTask.Name.Length < 3 || newTask.Name.Length > 20) errors += "Название задачи должно содержать от 3 до 20 символов.\n";
+                if (newTask.Name.Length < 3 || newTask.Name.Length > 40) errors += "Название задачи должно содержать от 3 до 40 символов.\n";
                 if (_taskType == "Deadlined")
                 {
                     if (String.IsNullOrEmpty(Date_Deadline.Text)) errors += "Не установлен крайний срок";
@@ -115,24 +125,31 @@ namespace organizer
                 if (errors != "") { MessageBox.Show(errors); return; }
                 else
                 {
-                    //using (var dbContext = new OrganizerDbContext())
-                    //{
-                    //    DateTime? utcDeadline = newTask.Deadline?.ToUniversalTime();
 
-                    //    if (utcDeadline != null)
-                    //    {
-                    //        newTask.Deadline = utcDeadline;
-                    //    }
-                    //    dbContext.Tasks.Add(newTask);
-                    //    dbContext.SaveChanges();
-                    //}
+                    // ПОДКЛЮЧЕНИЕ БД
 
-                    if (designatedGroup == null) MANUALDATA.tsklst.Add(newTask);
-                    else if (designatedGroup.Tasks == null)
+                    using (var dbContext = new OrganizerDbContext())
                     {
-                        designatedGroup.Tasks = new List<Task> { newTask };
+                        DateTime? utcDeadline = newTask.Deadline?.ToUniversalTime();
+
+                        if (utcDeadline != null)
+                        {
+                            newTask.Deadline = utcDeadline;
+                        }
+
+                        newTask.TaskGroupID = designatedGroup?.TaskGroupID ?? -4;
+
+                        dbContext.Tasks.Add(newTask);
+                        dbContext.SaveChanges();
                     }
-                    else designatedGroup.Tasks.Add(newTask);
+
+                    //if (designatedGroup == null) MANUALDATA.tsklst.Add(newTask);
+                    //else if (designatedGroup.Tasks == null)
+                    //{
+                    //    designatedGroup.Tasks = new List<Task> { newTask };
+                    //}
+                    //else designatedGroup.Tasks.Add(newTask);
+
                     main.Update();
                     Close();
                 }
