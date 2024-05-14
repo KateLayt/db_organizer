@@ -34,64 +34,82 @@ namespace organizer
             View_TaskList.Children.Clear();
             ICollection<Task>? tasks;
             ICollection<RepeatableTask>? reptasks;
-            if (displayedGroup == null || displayedGroup.TaskGroupID == -5)
+
+            if (dbContext.CurrentUsers.FirstOrDefault() != null)
             {
-                //тут можно сделать или отдельный такой список всех задач, с заранее известным айдишником
-                //ну или выводить их вложенными циклами, но тогда там будет запара с плашкой
-                Txt_DispListName.Text = "Все задачи";
-                Txt_DispListDescription.Visibility = Visibility.Collapsed;
-
-
-                // ПОДКЛЮЧЕНИЕ БД
-
-                tasks = dbContext.Tasks.OrderBy(t => t.Deadline).ToArray();
-                reptasks = dbContext.RepeatableTasks.OrderBy(t => t.Deadline).ToArray();
-                
-            }
-
-            else
-            {
-                Txt_DispListName.Text = displayedGroup.Name;
-                if (!String.IsNullOrEmpty(displayedGroup.Description))
+                if (displayedGroup == null || (displayedGroup.Name == "Все задачи" && displayedGroup.IsBuiltin == true))
                 {
-                    Txt_DispListDescription.Visibility = Visibility.Visible;
-                    Txt_DispListDescription.Text = displayedGroup.Description;
+                    //тут можно сделать или отдельный такой список всех задач, с заранее известным айдишником
+                    //ну или выводить их вложенными циклами, но тогда там будет запара с плашкой
+                    Txt_DispListName.Text = "Все задачи";
+                    Txt_DispListDescription.Visibility = Visibility.Collapsed;
+
+
+                    // ПОДКЛЮЧЕНИЕ БД
+
+                    tasks = dbContext.Tasks
+                        .Where(u => u.TaskGroup.UserID == dbContext.CurrentUsers.FirstOrDefault().UserId)
+                        .OrderBy(t => t.Deadline).ToArray();
+
+                    reptasks = dbContext.RepeatableTasks
+                        .Where(u => u.TaskGroup.UserID == dbContext.CurrentUsers.FirstOrDefault().UserId)
+                        .OrderBy(t => t.Deadline).ToArray();
+
                 }
+
                 else
                 {
-                    Txt_DispListDescription.Visibility = Visibility.Collapsed;
+                    Txt_DispListName.Text = displayedGroup.Name;
+                    if (!String.IsNullOrEmpty(displayedGroup.Description))
+                    {
+                        Txt_DispListDescription.Visibility = Visibility.Visible;
+                        Txt_DispListDescription.Text = displayedGroup.Description;
+                    }
+                    else
+                    {
+                        Txt_DispListDescription.Visibility = Visibility.Collapsed;
+                    }
+
+                    // ПОДКЛЮЧЕНИЕ БД
+
+                    tasks = dbContext.Tasks
+                        .Where(u => u.TaskGroup.UserID == dbContext.CurrentUsers.FirstOrDefault().UserId)
+                        .Where(g => g.TaskGroupID == displayedGroup.TaskGroupID)
+                        .OrderBy(t => t.Deadline)
+                        .ToArray();
+
+                    reptasks = dbContext.RepeatableTasks
+                        .Where(u => u.TaskGroup.UserID == dbContext.CurrentUsers.FirstOrDefault().UserId)
+                        .Where(g => g.TaskGroupID == displayedGroup.TaskGroupID)
+                        .OrderBy(t => t.Deadline)
+                        .ToArray();
+
+                    //tasks = displayedGroup.Tasks;
+                    //reptasks = displayedGroup.RepeatableTasks;
                 }
 
-                // ПОДКЛЮЧЕНИЕ БД
-
-                tasks = dbContext.Tasks.Where(g => g.TaskGroupID == displayedGroup.TaskGroupID).OrderBy(t => t.Deadline).ToArray();
-                reptasks = dbContext.RepeatableTasks.Where(g => g.TaskGroupID == displayedGroup.TaskGroupID).OrderBy(t => t.Deadline).ToArray();
-                
-                //tasks = displayedGroup.Tasks;
-                //reptasks = displayedGroup.RepeatableTasks;
-            }
-
-            if (tasks != null)
-            {
-                foreach (Task tsk in tasks)
+                if (tasks != null)
                 {
-                    PlainTaskPlate taskPlate = new PlainTaskPlate();
-                    taskPlate.RepresentedTask = tsk;
-                    View_TaskList.Children.Add(taskPlate);
-                    taskPlate.Update();
+                    foreach (Task tsk in tasks)
+                    {
+                        PlainTaskPlate taskPlate = new PlainTaskPlate();
+                        taskPlate.RepresentedTask = tsk;
+                        View_TaskList.Children.Add(taskPlate);
+                        taskPlate.Update();
+                    }
                 }
-            }
 
-            if (reptasks != null)
-            {
-                foreach (RepeatableTask tsk in reptasks!)
+                if (reptasks != null)
                 {
-                    RepeatableTaskPlate taskPlate = new RepeatableTaskPlate();
-                    taskPlate.RepresentedTask = tsk;
-                    View_TaskList.Children.Add(taskPlate);
-                    taskPlate.Update();
+                    foreach (RepeatableTask tsk in reptasks!)
+                    {
+                        RepeatableTaskPlate taskPlate = new RepeatableTaskPlate();
+                        taskPlate.RepresentedTask = tsk;
+                        View_TaskList.Children.Add(taskPlate);
+                        taskPlate.Update();
+                    }
                 }
-            }
+            } 
         }
 
         public void UpdateLists()
@@ -108,15 +126,20 @@ namespace organizer
 
             // ПОДКЛЮЧЕНИЕ БД
 
-            foreach (TaskGroup taskGroup in dbContext.TaskGroups)
+            if (dbContext.CurrentUsers.FirstOrDefault() != null ) 
             {
-                TaskGroupPlate plate = new(this);
-                plate.representedGroup = taskGroup;
-                View_Lists.Children.Add(plate);
-                plate.Update();
-            }
-            
+                var groups = dbContext.TaskGroups
+                    .Where(u => u.UserID == dbContext.CurrentUsers.FirstOrDefault().UserId)
+                    .ToList();
 
+                foreach (TaskGroup taskGroup in groups)
+                {
+                    TaskGroupPlate plate = new(this);
+                    plate.representedGroup = taskGroup;
+                    View_Lists.Children.Add(plate);
+                    plate.Update();
+                }
+            }
         }
 
         public void Update()
@@ -127,7 +150,7 @@ namespace organizer
 
         private void Btn_AccountPage_Click(object sender, RoutedEventArgs e)
         {
-            LoginWindow loginWindow = new LoginWindow();
+            LoginWindow loginWindow = new LoginWindow(this);
             loginWindow.Show();
         }
 
@@ -151,8 +174,8 @@ namespace organizer
             }
             else
             {
-                TaskCreateWindow editWind = new(this, displayedGroup);
-                editWind.Show();
+                TaskCreateWindow createWind = new(this, displayedGroup);
+                createWind.Show();
             }
             
         }
@@ -180,6 +203,7 @@ namespace organizer
                 if (displayedGroup == null || displayedGroup.TaskGroupID < 0) { MessageBox.Show("Эту группу нельзя изменить"); return; }
                 GroupEditWindow editWind = new(displayedGroup, this);
                 editWind.Show();
+                Update();
             }
             else
             {
@@ -195,6 +219,7 @@ namespace organizer
             {
                 dbContext.CurrentUsers.Remove(currentUser);
                 dbContext.SaveChanges();
+                Update();
                 MessageBox.Show("Вы вышли!");
             }
             else

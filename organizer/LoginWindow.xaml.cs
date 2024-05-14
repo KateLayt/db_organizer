@@ -21,8 +21,12 @@ namespace organizer
     public partial class LoginWindow : Window
     {
         OrganizerDbContext _context = new OrganizerDbContext();
-        public LoginWindow()
+
+        private MainWindow main;
+
+        public LoginWindow(MainWindow sender)
         {
+            main = sender;
             InitializeComponent();
         }
 
@@ -45,9 +49,17 @@ namespace organizer
 
                 _context.CurrentUsers.Add(currentUser);
                 _context.SaveChanges();
+                main.Update();
                 Close();
             }
 
+        }
+
+        private void Btn_SignUp_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            SignUpWindow signUpWindow = new SignUpWindow();
+            signUpWindow.Show();
         }
     }
 }

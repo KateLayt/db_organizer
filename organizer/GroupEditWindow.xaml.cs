@@ -42,12 +42,23 @@ namespace organizer
             main.Update();
 
             //ПОДКЛЮЧЕНИЕ БД
+            // Короче тут удаляются все задачи которые были в списке. Можно сделать еще отдельную кнопочку, чтобы
+            // они перемещались во все заметки, а удалялась только сама группа
 
             using (OrganizerDbContext dbContext = new OrganizerDbContext())
             {
-                dbContext.Remove(editedGroup);
+                var tasksToRemove = dbContext.Tasks
+                    .Where(t => t.TaskGroupID == editedGroup.TaskGroupID).ToList();
+                dbContext.Tasks.RemoveRange(tasksToRemove);
+
+                var rTasksToRemove = dbContext.RepeatableTasks
+                    .Where(rt => rt.TaskGroupID == editedGroup.TaskGroupID).ToList();
+                dbContext.RepeatableTasks.RemoveRange(rTasksToRemove);
+
+                dbContext.TaskGroups.Remove(editedGroup);
                 dbContext.SaveChanges();
             }
+
 
             Close();
         }

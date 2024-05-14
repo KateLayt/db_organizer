@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\App.xaml
-91944876402
+10-1249424941
 
-342037191941
+37851213549
 212-810421223
-GroupCreateWindow.xaml;GroupEditWindow.xaml;LoginWindow.xaml;MainWindow.xaml;PlainTaskPlate.xaml;RepeatableTaskPlate.xaml;TaskCreateWindow.xaml;TaskEditWindow.xaml;TaskGroupPlate.xaml;
+GroupCreateWindow.xaml;GroupEditWindow.xaml;LoginWindow.xaml;MainWindow.xaml;PlainTaskPlate.xaml;RepeatableTaskPlate.xaml;SignUpWindow.xaml;TaskCreateWindow.xaml;TaskEditWindow.xaml;TaskGroupPlate.xaml;
 
 False
 

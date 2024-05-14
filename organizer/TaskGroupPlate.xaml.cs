@@ -33,16 +33,46 @@ namespace organizer
 
         public void Update()
         {
-            Txt_GroupName.Text = representedGroup.Name;
+            
             //Txt_TaskCounter.Text = ((representedGroup.Tasks?.Count() ?? 0) + (representedGroup.RepeatableTasks?.Count() ?? 0)).ToString();
             
             // ПОДКЛЮЧЕНИЕ БД
             
             using (OrganizerDbContext dbContext = new OrganizerDbContext())
             {
-                int tasks = dbContext.Tasks.Where(g => g.TaskGroup.Name == representedGroup.Name).Count();
-                int repTasks = dbContext.RepeatableTasks.Where(g => g.TaskGroup.Name == representedGroup.Name).Count();
-                Txt_TaskCounter.Text = (tasks + repTasks).ToString();
+                CurrentUser? currentUser = dbContext.CurrentUsers.FirstOrDefault();
+                if (currentUser != null)
+                {   
+                    Txt_GroupName.Text = representedGroup.Name;
+
+                    if (representedGroup.TaskGroupID == -5)
+                    {
+                        Txt_TaskCounter.Text = (dbContext.Tasks
+                            .Where(u => u.TaskGroup.User.UserID == currentUser.UserId)
+                            .Count()
+                            + dbContext.RepeatableTasks
+                            .Where(u => u.TaskGroup.User.UserID == currentUser.UserId)
+                            .Count())
+                            .ToString();
+                    }
+                    else
+                    {
+                        int tasks = dbContext.Tasks
+                            .Where(u => u.TaskGroup.User.UserID == currentUser.UserId)
+                            .Where(g => (g.TaskGroup.Name == representedGroup.Name))
+                            .Count();
+                        int repTasks = dbContext.RepeatableTasks
+                            .Where(u => u.TaskGroup.User.UserID == currentUser.UserId)
+                            .Where(g => g.TaskGroup.Name == representedGroup.Name)
+                            .Count();
+                        Txt_TaskCounter.Text = (tasks + repTasks).ToString();
+                    }
+                }
+                else
+                {
+                    
+                }
+
             }
         }
 

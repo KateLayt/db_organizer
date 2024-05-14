@@ -16,6 +16,9 @@
     <Compile Update="RepeatableTaskPlate.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="SignUpWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="TaskCreateWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -40,6 +43,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="RepeatableTaskPlate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SignUpWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="TaskCreateWindow.xaml">

@@ -4,9 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:organizer"
-             mc:Ignorable="d" Width="230" Height="150" MinWidth="230" MinHeight="180">
+             mc:Ignorable="d" Width="230" Height="150" MinWidth="230" MinHeight="220">
     <Grid Background="#FF262626">
-        <StackPanel Height="134">
+        <StackPanel Margin="0,0,0,-1">
             <TextBlock Text="Вход:" Margin="0,10,0,0" Foreground="White" FontWeight="Bold" Width="180" />
             <WrapPanel Height="66" Width="182" Margin="0,8,0,0">
                 <WrapPanel Margin="0,10,0,10">
@@ -19,6 +19,7 @@
                 </WrapPanel>
             </WrapPanel>
             <Button x:Name="Btn_Login" HorizontalAlignment="Center" FontWeight="Bold" Click="Btn_Login_Click" Content="Войти" Width="182" Margin="0,5,0,0" Height="23" />
+            <Button x:Name="Btn_SignUp" HorizontalAlignment="Center" FontWeight="Bold" Content="Регистрация" Width="182" Margin="0,10,0,0" Height="23" Padding="1,1,1,1" Click="Btn_SignUp_Click" />
         </StackPanel>
 
     </Grid>

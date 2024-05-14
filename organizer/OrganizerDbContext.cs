@@ -22,8 +22,6 @@ namespace organizer
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            TaskGroup.SetBaseGroups(modelBuilder);
-            User.SetBaseUsers(modelBuilder);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -237,3 +237,5 @@ C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organi
 C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\TaskGroupPlate.baml
 C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\LoginWindow.g.cs
 C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\LoginWindow.baml
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\SignUpWindow.g.cs
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\SignUpWindow.baml
