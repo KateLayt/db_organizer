@@ -93,28 +93,6 @@ namespace organizer
                     taskPlate.Update();
                 }
             }
-
-            // ПОДКЛЮЧЕНИЕ БД
-            // пока выводятся во все группы
-
-            //using (OrganizerDbContext dbContext = new OrganizerDbContext())
-            //{
-            //    foreach (Task task in dbContext.Tasks)
-            //    {
-            //        PlainTaskPlate taskPlate = new PlainTaskPlate();
-            //        taskPlate.RepresentedTask = task;
-            //        View_TaskList.Children.Add(taskPlate);
-            //        taskPlate.Update();
-            //    }
-
-            //    foreach (RepeatableTask task in dbContext.RepeatableTasks)
-            //    {
-            //        RepeatableTaskPlate taskPlate = new RepeatableTaskPlate();
-            //        taskPlate.RepresentedTask = task;
-            //        View_TaskList.Children.Add(taskPlate);
-            //        taskPlate.Update();
-            //    }
-            //}
         }
 
         public void UpdateLists()

@@ -19,7 +19,7 @@ namespace organizer.Models
 
         [Required]
         [Range(1, int.MaxValue)]
-        public int Interval;
+        public int Interval { get; set; }
 
         public DateTime? LastDone { get; set; }
 
