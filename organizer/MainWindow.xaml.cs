@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using organizer.Models;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -33,7 +34,7 @@ namespace organizer
             View_TaskList.Children.Clear();
             ICollection<Task>? tasks;
             ICollection<RepeatableTask>? reptasks;
-            if (displayedGroup == null)
+            if (displayedGroup == null || displayedGroup.TaskGroupID == -5)
             {
                 //тут можно сделать или отдельный такой список всех задач, с заранее известным айдишником
                 //ну или выводить их вложенными циклами, но тогда там будет запара с плашкой
@@ -45,8 +46,8 @@ namespace organizer
 
                 using (OrganizerDbContext dbContext = new OrganizerDbContext())
                 {
-                    tasks = dbContext.Tasks.ToArray();
-                    reptasks = dbContext.RepeatableTasks.ToArray();
+                    tasks = dbContext.Tasks.OrderBy(t => t.Deadline).ToArray();
+                    reptasks = dbContext.RepeatableTasks.OrderBy(t => t.Deadline).ToArray();
                 }
             }
 
@@ -65,8 +66,8 @@ namespace organizer
 
                 using (OrganizerDbContext dbContext = new OrganizerDbContext())
                 {
-                    tasks = dbContext.Tasks.Where(g => g.TaskGroupID == displayedGroup.TaskGroupID).ToArray();
-                    reptasks = dbContext.RepeatableTasks.Where(g => g.TaskGroupID == displayedGroup.TaskGroupID).ToArray();
+                    tasks = dbContext.Tasks.Where(g => g.TaskGroupID == displayedGroup.TaskGroupID).OrderBy(t => t.Deadline).ToArray();
+                    reptasks = dbContext.RepeatableTasks.Where(g => g.TaskGroupID == displayedGroup.TaskGroupID).OrderBy(t => t.Deadline).ToArray();
                 }
                 //tasks = displayedGroup.Tasks;
                 //reptasks = displayedGroup.RepeatableTasks;
