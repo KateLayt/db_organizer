@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using Microsoft.EntityFrameworkCore;
 
 namespace organizer.Models
 {
@@ -20,7 +21,7 @@ namespace organizer.Models
 
         [Required]
         [EmailAddress]
-        public string? Email { get; set; }
+        public string? Username { get; set; }
 
         [Required]
         public string? HashPassword { get; set; }
@@ -35,6 +36,15 @@ namespace organizer.Models
         public virtual ICollection<TaskGroup>? TaskGroups { get; set; }
 
         public virtual ICollection<Comment>? Comments { get; set; }
+
+        public static void SetBaseUsers(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasData(
+                new User { UserID = -3, Name = "Дашуля", Username = "dasha", HashPassword = "dasha", IsMale = false },
+                new User { UserID = -2, Name = "Катюша", Username = "katya", HashPassword = "katya", IsMale = false },
+                new User { UserID = -1, Name = "Пользователь", Username = "user", HashPassword = "user", IsMale = true }
+            );
+        }
 
     }
 }

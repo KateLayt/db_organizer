@@ -30,5 +30,6 @@
         <Button x:Name="Btn_AddGroup" Content="Создать группу" HorizontalAlignment="Left" Margin="0,303,0,0" Width="134" Click="Btn_AddGroup_Click" Height="38" VerticalAlignment="Top" FontFamily="Century Gothic" FontWeight="Bold" Background="#FF5C5C5C" BorderBrush="#FF4E4E4E" Foreground="White" Grid.Column="1" />
         <TextBlock x:Name="Txt_DispListName" Grid.Column="3" HorizontalAlignment="Center" Margin="0,34,0,0" TextWrapping="Wrap" Text="Название группы" FontFamily="Century Gothic" FontWeight="Bold" FontSize="16" VerticalAlignment="Top" Width="360" Height="21" TextAlignment="Center"/>
         <Button x:Name="Btn_EditGroup" Grid.Column="1" Content="Изменить группу" HorizontalAlignment="Left" Margin="0,359,0,0" FontFamily="Century Gothic" RenderTransformOrigin="-0.042,-0.048" Width="134" Click="Btn_EditGroup_Click" Height="38" VerticalAlignment="Top" Background="#FF5C5C5C" BorderBrush="#FF4E4E4E" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="Btn_TestExit" Grid.Column="1" Content="Exit" HorizontalAlignment="Left" Height="26" Margin="10,183,0,0" VerticalAlignment="Top" Width="106" Click="Btn_TestExit_Click"/>
     </Grid>
 </Window>

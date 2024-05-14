@@ -22,6 +22,8 @@ namespace organizer
     public partial class MainWindow : Window
     {
         public TaskGroup? displayedGroup;
+        private static OrganizerDbContext dbContext = new OrganizerDbContext();
+        private CurrentUser? currentUser = dbContext.CurrentUsers.FirstOrDefault();
         public MainWindow()
         {
             InitializeComponent();
@@ -44,11 +46,9 @@ namespace organizer
 
                 // ПОДКЛЮЧЕНИЕ БД
 
-                using (OrganizerDbContext dbContext = new OrganizerDbContext())
-                {
-                    tasks = dbContext.Tasks.OrderBy(t => t.Deadline).ToArray();
-                    reptasks = dbContext.RepeatableTasks.OrderBy(t => t.Deadline).ToArray();
-                }
+                tasks = dbContext.Tasks.OrderBy(t => t.Deadline).ToArray();
+                reptasks = dbContext.RepeatableTasks.OrderBy(t => t.Deadline).ToArray();
+                
             }
 
             else
@@ -64,11 +64,11 @@ namespace organizer
                     Txt_DispListDescription.Visibility = Visibility.Collapsed;
                 }
 
-                using (OrganizerDbContext dbContext = new OrganizerDbContext())
-                {
-                    tasks = dbContext.Tasks.Where(g => g.TaskGroupID == displayedGroup.TaskGroupID).OrderBy(t => t.Deadline).ToArray();
-                    reptasks = dbContext.RepeatableTasks.Where(g => g.TaskGroupID == displayedGroup.TaskGroupID).OrderBy(t => t.Deadline).ToArray();
-                }
+                // ПОДКЛЮЧЕНИЕ БД
+
+                tasks = dbContext.Tasks.Where(g => g.TaskGroupID == displayedGroup.TaskGroupID).OrderBy(t => t.Deadline).ToArray();
+                reptasks = dbContext.RepeatableTasks.Where(g => g.TaskGroupID == displayedGroup.TaskGroupID).OrderBy(t => t.Deadline).ToArray();
+                
                 //tasks = displayedGroup.Tasks;
                 //reptasks = displayedGroup.RepeatableTasks;
             }
@@ -108,16 +108,16 @@ namespace organizer
             //}
 
 
-            using (OrganizerDbContext dbContext = new OrganizerDbContext())
+            // ПОДКЛЮЧЕНИЕ БД
+
+            foreach (TaskGroup taskGroup in dbContext.TaskGroups)
             {
-                foreach (TaskGroup taskGroup in dbContext.TaskGroups)
-                {
-                    TaskGroupPlate plate = new(this);
-                    plate.representedGroup = taskGroup;
-                    View_Lists.Children.Add(plate);
-                    plate.Update();
-                }
+                TaskGroupPlate plate = new(this);
+                plate.representedGroup = taskGroup;
+                View_Lists.Children.Add(plate);
+                plate.Update();
             }
+            
 
         }
 
@@ -129,7 +129,8 @@ namespace organizer
 
         private void Btn_AccountPage_Click(object sender, RoutedEventArgs e)
         {
-
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
         }
 
         private void Btn_MainPage_Click(object sender, RoutedEventArgs e)
@@ -144,9 +145,18 @@ namespace organizer
 
         private void Btn_AddTask_Click(object sender, RoutedEventArgs e)
         {
-            TaskCreateWindow editWind = new(this, displayedGroup);
-            editWind.Show();
+            if (currentUser == null)
+            {
+                MessageBox.Show("Сначала авторизуйтесь!");
+            }
+            else
+            {
+                TaskCreateWindow editWind = new(this, displayedGroup);
+                editWind.Show();
+            }
+            
         }
+
         private void Btn_AddGroup_Click(object sender, RoutedEventArgs e)
         {
             GroupCreateWindow createWind = new(this);
@@ -154,9 +164,25 @@ namespace organizer
         }
         private void Btn_EditGroup_Click(object sender, RoutedEventArgs e)
         {
-            if (displayedGroup == null) { MessageBox.Show("Эту группу нельзя изменить"); return; }
+            if (displayedGroup == null || displayedGroup.TaskGroupID < 0) { MessageBox.Show("Эту группу нельзя изменить"); return; }
             GroupEditWindow editWind = new(displayedGroup, this);
             editWind.Show();
+        }
+
+        private void Btn_TestExit_Click(object sender, RoutedEventArgs e)
+        {
+
+                if (currentUser != null)
+                {
+                    dbContext.CurrentUsers.Remove(currentUser);
+                    dbContext.SaveChanges();
+                    MessageBox.Show("Вы вышли!");
+                }
+                else
+                {
+                    MessageBox.Show("Сначала авторизуйтесь!");
+                }
+            
         }
     }
 }

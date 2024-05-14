@@ -8,7 +8,7 @@
         Title="Создать задачу" Height="250" Width="260">
     <Grid>
         <StackPanel>
-            <TextBlock HorizontalAlignment="Left" Margin="15,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="16" FontFamily="Century Gothic" FontWeight="Bold"><Run Language="ru-ru" Text="Название задачи"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+            <TextBlock x:Name="Txt" HorizontalAlignment="Left" Margin="15,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="16" FontFamily="Century Gothic" FontWeight="Bold"><Run Language="ru-ru" Text="Название задачи"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
             <TextBox x:Name="Txt_TaskName" HorizontalAlignment="Left" Margin="15,5,0,0" TextWrapping="Wrap" Text="Новая задача" Width="189" Height="19" UndoLimit="24" FontFamily="Century Gothic" FontSize="12"/>
             <StackPanel x:Name="Pnl_TaskType" Margin="15,15,10,0">
                 <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Width="107" FontFamily="Century Gothic" FontWeight="Bold"><Run Language="ru-ru" Text="Тип задачи"/></TextBlock>
