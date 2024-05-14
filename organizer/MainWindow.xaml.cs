@@ -23,11 +23,9 @@ namespace organizer
     {
         public TaskGroup? displayedGroup;
         private static OrganizerDbContext dbContext = new OrganizerDbContext();
-        private CurrentUser? currentUser = dbContext.CurrentUsers.FirstOrDefault();
         public MainWindow()
         {
             InitializeComponent();
-
             Update();  
         }
 
@@ -145,6 +143,8 @@ namespace organizer
 
         private void Btn_AddTask_Click(object sender, RoutedEventArgs e)
         {
+            CurrentUser? currentUser = dbContext.CurrentUsers.FirstOrDefault();
+
             if (currentUser == null)
             {
                 MessageBox.Show("Сначала авторизуйтесь!");
@@ -159,29 +159,48 @@ namespace organizer
 
         private void Btn_AddGroup_Click(object sender, RoutedEventArgs e)
         {
-            GroupCreateWindow createWind = new(this);
-            createWind.Show();
+            CurrentUser? currentUser = dbContext.CurrentUsers.FirstOrDefault();
+
+            if (currentUser != null)
+            {
+                GroupCreateWindow createWind = new(this);
+                createWind.Show();
+            }
+            else
+            {
+                MessageBox.Show("Сначала авторизуйтесь!");
+            }
         }
         private void Btn_EditGroup_Click(object sender, RoutedEventArgs e)
         {
-            if (displayedGroup == null || displayedGroup.TaskGroupID < 0) { MessageBox.Show("Эту группу нельзя изменить"); return; }
-            GroupEditWindow editWind = new(displayedGroup, this);
-            editWind.Show();
+            CurrentUser? currentUser = dbContext.CurrentUsers.FirstOrDefault();
+
+            if (currentUser != null)
+            {
+                if (displayedGroup == null || displayedGroup.TaskGroupID < 0) { MessageBox.Show("Эту группу нельзя изменить"); return; }
+                GroupEditWindow editWind = new(displayedGroup, this);
+                editWind.Show();
+            }
+            else
+            {
+                MessageBox.Show("Сначала авторизуйтесь!");
+            }
         }
 
         private void Btn_TestExit_Click(object sender, RoutedEventArgs e)
         {
+            CurrentUser? currentUser = dbContext.CurrentUsers.FirstOrDefault();
 
-                if (currentUser != null)
-                {
-                    dbContext.CurrentUsers.Remove(currentUser);
-                    dbContext.SaveChanges();
-                    MessageBox.Show("Вы вышли!");
-                }
-                else
-                {
-                    MessageBox.Show("Сначала авторизуйтесь!");
-                }
+            if (currentUser != null)
+            {
+                dbContext.CurrentUsers.Remove(currentUser);
+                dbContext.SaveChanges();
+                MessageBox.Show("Вы вышли!");
+            }
+            else
+            {
+                MessageBox.Show("Сначала авторизуйтесь!");
+            }
             
         }
     }

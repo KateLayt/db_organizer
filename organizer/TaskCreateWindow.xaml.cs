@@ -87,7 +87,7 @@ namespace organizer
                             repTask.Deadline = utcDeadline;
                         }
 
-                        repTask.TaskGroupID = designatedGroup?.TaskGroupID  ?? - 4;
+                        repTask.TaskGroupID = designatedGroup?.TaskGroupID  ?? - 5;
 
                         dbContext.RepeatableTasks.Add(repTask);
                         dbContext.SaveChanges();

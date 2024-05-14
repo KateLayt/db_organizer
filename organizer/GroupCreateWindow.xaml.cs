@@ -48,6 +48,9 @@ namespace organizer
 
                 using (var dbContext = new OrganizerDbContext())
                 {
+                    int currentUserId = dbContext.CurrentUsers.FirstOrDefault().UserId;
+
+                    newGroup.UserID = currentUserId;
                     dbContext.TaskGroups.Add(newGroup);
                     dbContext.SaveChanges();
                 }
