@@ -150,8 +150,15 @@ namespace organizer
 
         private void Btn_AccountPage_Click(object sender, RoutedEventArgs e)
         {
-            LoginWindow loginWindow = new LoginWindow(this);
-            loginWindow.Show();
+            if (dbContext.CurrentUsers.FirstOrDefault() == null)
+            {
+                LoginWindow loginWindow = new LoginWindow(this);
+                loginWindow.Show();
+            }
+            else
+            {
+                // Страница аккаунта. Кнопку выхода поместить туда
+            }
         }
 
         private void Btn_MainPage_Click(object sender, RoutedEventArgs e)

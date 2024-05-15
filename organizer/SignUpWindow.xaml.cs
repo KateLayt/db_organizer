@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -37,7 +38,8 @@ namespace organizer
                 {
                     if (Txt_name.Text.Length > 3 && Txt_password.Text.Length > 3 )
                     {
-                        User newUser = new() { Name = Txt_name.Text, Username = Txt_username.Text, HashPassword = Txt_password.Text, IsMale = isMale, BirthDate = DateTime.Now.ToUniversalTime() };
+                        string hashedPassword = HashPassword(Txt_password.Text);
+                        User newUser = new() { Name = Txt_name.Text, Username = Txt_username.Text, HashPassword = hashedPassword, IsMale = isMale, BirthDate = DateTime.Now.ToUniversalTime() };
 
                         dbContext.Users.Add(newUser);
                         dbContext.SaveChanges();
@@ -71,6 +73,25 @@ namespace organizer
         private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
         {
             isMale = false;
+        }
+
+        private static string HashPassword(string password)
+        {
+            byte[] salt;
+            byte[] buffer2;
+            if (password == null)
+            {
+                throw new ArgumentNullException("password");
+            }
+            using (Rfc2898DeriveBytes bytes = new Rfc2898DeriveBytes(password, 0x10, 0x3e8))
+            {
+                salt = bytes.Salt;
+                buffer2 = bytes.GetBytes(0x20);
+            }
+            byte[] dst = new byte[0x31];
+            Buffer.BlockCopy(salt, 0, dst, 1, 0x10);
+            Buffer.BlockCopy(buffer2, 0, dst, 0x11, 0x20);
+            return Convert.ToBase64String(dst);
         }
     }
 }
