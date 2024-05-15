@@ -41,11 +41,13 @@ namespace organizer
 
                         dbContext.Users.Add(newUser);
                         dbContext.SaveChanges();
-                        dbContext.TaskGroups.AddRange(new TaskGroup { Name = "Уборка", IsBuiltin = true },
-                                                        new TaskGroup { Name = "Продукты", IsBuiltin = true },
-                                                        new TaskGroup { Name = "Работа", IsBuiltin = true },
-                                                        new TaskGroup { Name = "Прочее", IsBuiltin = true },
-                                                        new TaskGroup { Name = "Все задачи", IsBuiltin = true });
+
+                        var lastUser = dbContext.Users.OrderByDescending(u => u.UserID).FirstOrDefault();
+                        dbContext.TaskGroups.AddRange(new TaskGroup { Name = "Уборка", IsBuiltin = true, UserID = lastUser.UserID },
+                                                        new TaskGroup { Name = "Продукты", IsBuiltin = true, UserID = lastUser.UserID },
+                                                        new TaskGroup { Name = "Работа", IsBuiltin = true, UserID = lastUser.UserID },
+                                                        new TaskGroup { Name = "Прочее", IsBuiltin = true, UserID = lastUser.UserID },
+                                                        new TaskGroup { Name = "Все задачи", IsBuiltin = true, UserID = lastUser.UserID });
                         dbContext.SaveChanges();
                         Close();
                         MessageBox.Show("Вы зарегестрированы!\nТеперь авторизуйтесь");

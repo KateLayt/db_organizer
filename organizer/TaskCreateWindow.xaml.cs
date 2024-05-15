@@ -87,7 +87,8 @@ namespace organizer
                             repTask.Deadline = utcDeadline;
                         }
 
-                        repTask.TaskGroupID = designatedGroup?.TaskGroupID  ?? - 5;
+                        repTask.TaskGroupID = designatedGroup?.TaskGroupID  ?? (dbContext.TaskGroups
+                            .FirstOrDefault(g => (g.Name == "Все задачи" && g.IsBuiltin == true && g.UserID == dbContext.CurrentUsers.FirstOrDefault().UserId))?.TaskGroupID);
 
                         dbContext.RepeatableTasks.Add(repTask);
                         dbContext.SaveChanges();
@@ -137,7 +138,8 @@ namespace organizer
                             newTask.Deadline = utcDeadline;
                         }
 
-                        newTask.TaskGroupID = designatedGroup?.TaskGroupID ?? -4;
+                        newTask.TaskGroupID = designatedGroup?.TaskGroupID ?? (dbContext.TaskGroups
+                            .FirstOrDefault(g => (g.Name == "Все задачи" && g.IsBuiltin == true && g.UserID == dbContext.CurrentUsers.FirstOrDefault().UserId))?.TaskGroupID);
 
                         dbContext.Tasks.Add(newTask);
                         dbContext.SaveChanges();

@@ -45,7 +45,7 @@ namespace organizer
                 {   
                     Txt_GroupName.Text = representedGroup.Name;
 
-                    if (representedGroup.TaskGroupID == -5)
+                    if (representedGroup.Name == "Все задачи" && representedGroup.IsBuiltin == true)
                     {
                         Txt_TaskCounter.Text = (dbContext.Tasks
                             .Where(u => u.TaskGroup.User.UserID == currentUser.UserId)
