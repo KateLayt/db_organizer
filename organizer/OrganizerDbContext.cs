@@ -18,6 +18,7 @@ namespace organizer
         public DbSet<TaskGroup> TaskGroups { get; set; }
         public DbSet<RepeatableTask> RepeatableTasks { get; set; }
         public DbSet<CurrentUser> CurrentUsers { get; set; }
+        public DbSet<Family> Families { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

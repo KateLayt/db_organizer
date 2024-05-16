@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 namespace organizer.Models
 {
@@ -32,6 +33,11 @@ namespace organizer.Models
         public int? AvatarID { get; set; }
 
         public DateTime? BirthDate { get; set; }
+
+        [ForeignKey("Family")]
+        public int? FamilyID { get; set; }
+
+        public virtual Family? Family { get; set; }
 
         public virtual ICollection<TaskGroup>? TaskGroups { get; set; }
 
