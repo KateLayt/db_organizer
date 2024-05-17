@@ -105,7 +105,7 @@ namespace organizer
                     //}
                     //else designatedGroup.RepeatableTasks.Add(repTask);
 
-                    main.Update();
+                    main.UpdateMain();
                     Close();
                 }
             }
@@ -152,7 +152,7 @@ namespace organizer
                     //}
                     //else designatedGroup.Tasks.Add(newTask);
 
-                    main.Update();
+                    main.UpdateMain();
                     Close();
                 }
             }

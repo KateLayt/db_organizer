@@ -79,7 +79,7 @@ namespace organizer
         private void Plate_Click(object sender, RoutedEventArgs e)
         {
             main.displayedGroup = representedGroup;
-            main.Update();
+            main.UpdateMain();
         }
     }
 }

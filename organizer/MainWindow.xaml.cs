@@ -22,6 +22,8 @@ namespace organizer
     public partial class MainWindow : Window
     {
         public TaskGroup? displayedGroup;
+        public User? currentUser;
+        public User? selectedFriend;
 
         // ПОДКЛЮЧЕНИЕ БД
         private static OrganizerDbContext dbContext = new OrganizerDbContext();
@@ -29,7 +31,9 @@ namespace organizer
         public MainWindow()
         {
             InitializeComponent();
-            Update();  
+            ShowMain();
+            UpdateMain();
+            UpdateFamily();
         }
 
         public void UpdateTasks()
@@ -37,6 +41,8 @@ namespace organizer
             View_TaskList.Children.Clear();
             ICollection<Task>? tasks;
             ICollection<RepeatableTask>? reptasks;
+
+            Txt_HelloUsrname.Text = currentUser?.Name;
 
 
             // ПОДКЛЮЧЕНИЕ БД
@@ -145,13 +151,66 @@ namespace organizer
             }
         }
 
-        public void Update()
+        public void UpdateMain()
         {
             UpdateLists();
             UpdateTasks();
         }
 
-        private void Btn_AccountPage_Click(object sender, RoutedEventArgs e)
+        public void ShowMain()
+        {
+            Pnl_GroupTaskBtns.Visibility = Visibility.Visible;
+            Pnl_FriendsTasks.Visibility = Visibility.Collapsed;
+            Pnl_Friends.Visibility = Visibility.Collapsed;
+            Btn_AddFriend.Visibility = Visibility.Collapsed;
+            Pnl_Tasks.Visibility = Visibility.Visible;
+            Pnl_Groups.Visibility = Visibility.Visible;
+            //Спрятать всё про семью, вывести панели с элементами главной страницы
+        }
+
+        public void ShowFamily()
+        {
+            Pnl_GroupTaskBtns.Visibility = Visibility.Collapsed;
+            Pnl_Tasks.Visibility = Visibility.Collapsed;
+            Pnl_Groups.Visibility = Visibility.Collapsed;
+            Pnl_FriendsTasks.Visibility = Visibility.Visible;
+            Pnl_Friends.Visibility = Visibility.Visible;
+            Btn_AddFriend.Visibility = Visibility.Visible;
+            //Спрятать всё про главную страницу, вывести элементы страницы семьи
+        }
+
+        public void UpdateFamily()
+        {
+            //Тут обновить всю инфу на странице семьи
+            View_Friends.Children.Clear();
+            //foreach (друга из Пользователь.Други)
+            //{
+            //    FriendPlate plate = new(this, repUser: friend, curUser: currentUser);
+            //    View_Friends.Children.Add(plate);
+            //}
+        }
+
+        public void UpdateFriendsTasks()
+        {
+            View_FriendsTasks.Children.Clear();
+            Txt_SelectedFriendName.Text = selectedFriend?.Name;
+
+            //foreach (Task из selectedFriend....ПростыеТаски)
+            //{
+            //    PlainTaskPlate plate = new();
+            //    plate.RepresentedTask = 
+            //    View_FriendsTasks.Children.Add(plate);
+            //}
+
+            //foreach (RepeatableTask из selectedFriend....ПростыеТаски)
+            //{
+            //    RepeatableTask plate = new();
+            //    plate.RepeatableTaskID =
+            //    View_FriendsTasks.Children.Add(plate);
+            //}
+        }
+
+        private void Btn_Login_Click(object sender, RoutedEventArgs e)
         {
             if (dbContext.CurrentUsers.FirstOrDefault() == null)
             {
@@ -164,15 +223,6 @@ namespace organizer
             }
         }
 
-        private void Btn_MainPage_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Btn_ListPage_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void Btn_AddTask_Click(object sender, RoutedEventArgs e)
         {
@@ -204,6 +254,7 @@ namespace organizer
                 MessageBox.Show("Сначала авторизуйтесь!");
             }
         }
+
         private void Btn_EditGroup_Click(object sender, RoutedEventArgs e)
         {
             CurrentUser? currentUser = dbContext.CurrentUsers.FirstOrDefault();
@@ -213,7 +264,7 @@ namespace organizer
                 if (displayedGroup == null || displayedGroup.TaskGroupID < 0) { MessageBox.Show("Эту группу нельзя изменить"); return; }
                 GroupEditWindow editWind = new(displayedGroup, this);
                 editWind.Show();
-                Update();
+                UpdateMain();
             }
             else
             {
@@ -229,7 +280,7 @@ namespace organizer
             {
                 dbContext.CurrentUsers.Remove(currentUser);
                 dbContext.SaveChanges();
-                Update();
+                UpdateMain();
                 MessageBox.Show("Вы вышли!");
             }
             else
@@ -237,6 +288,20 @@ namespace organizer
                 MessageBox.Show("Сначала авторизуйтесь!");
             }
             
+        }
+
+        private void Btn_MainPage_Click(object sender, RoutedEventArgs e)
+        {
+            ShowMain();
+            UpdateMain();
+        }
+
+        private void Btn_FamilyPage_Click(object sender, RoutedEventArgs e)
+        {
+            //выбрать тут первого члена семьи по умолчанию или если его нет
+            //Pnl_FriendsTasks.Visibility = Visibility.Collapsed;
+            ShowFamily();
+            UpdateFamily();
         }
     }
 }

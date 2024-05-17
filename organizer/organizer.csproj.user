@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="FriendPlate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -30,6 +33,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="FriendPlate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="GroupCreateWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

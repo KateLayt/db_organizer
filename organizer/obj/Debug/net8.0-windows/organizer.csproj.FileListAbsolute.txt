@@ -197,7 +197,6 @@ C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\ru\Microsoft.CodeAnalysis
 C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Uni\db_organizer\organizer\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\MainWindow.baml
 C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\RepeatableTaskPlate.baml
 C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\organizer.g.resources
@@ -239,3 +238,9 @@ C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organi
 C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\LoginWindow.baml
 C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\SignUpWindow.g.cs
 C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\SignUpWindow.baml
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\FriendPlate.g.cs
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\LoginWindow.g.cs
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\SignUpWindow.g.cs
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\FriendPlate.baml
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\LoginWindow.baml
+C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\SignUpWindow.baml

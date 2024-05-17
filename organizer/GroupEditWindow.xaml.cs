@@ -39,7 +39,7 @@ namespace organizer
         {
             //MANUALDATA.groups.Remove(editedGroup);
             main.displayedGroup = null;
-            main.Update();
+            main.UpdateMain();
 
             //ПОДКЛЮЧЕНИЕ БД
 
@@ -71,7 +71,7 @@ namespace organizer
             {
                 editedGroup.Name = Txt_GroupName.Text;
                 editedGroup.Description = Txt_Description.Text;
-                main.Update();
+                main.UpdateMain();
 
                 try
                 {
@@ -92,7 +92,7 @@ namespace organizer
                         else
                             errors += "Не удалось найти такую группу в базе.\n";
                     }
-                    main.Update();
+                    main.UpdateMain();
                 }
                 catch (Exception ex)
                 {

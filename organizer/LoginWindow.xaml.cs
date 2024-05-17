@@ -58,7 +58,7 @@ namespace organizer
 
                 _context.CurrentUsers.Add(currentUser);
                 _context.SaveChanges();
-                main.Update();
+                main.UpdateMain();
                 Close();
             }
 

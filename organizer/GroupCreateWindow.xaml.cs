@@ -57,7 +57,7 @@ namespace organizer
 
                 //MANUALDATA.groups.Add(newGroup);
 
-                main.Update();
+                main.UpdateMain();
                 Close();
             }
         }
