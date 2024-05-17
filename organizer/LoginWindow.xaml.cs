@@ -21,6 +21,8 @@ namespace organizer
     /// </summary>
     public partial class LoginWindow : Window
     {
+
+        // ПОДКЛЮЧЕНИЕ БД
         OrganizerDbContext _context = new OrganizerDbContext();
 
         private MainWindow main;
@@ -34,7 +36,8 @@ namespace organizer
         private void Btn_Login_Click(object sender, RoutedEventArgs e)
         {
             User? user = null;
-            if (VerifyHashedPassword(_context.Users.FirstOrDefault(n => n.Username == Txt_username.Text)!.HashPassword!, Txt_password.Text))
+            string? hashPassword = _context.Users.FirstOrDefault(n => n.Username == Txt_username.Text)?.HashPassword;
+            if (VerifyHashedPassword(hashPassword, Txt_password.Text))
             {
                 user = _context.Users
                 .FirstOrDefault(u => u.Username == Txt_username.Text);

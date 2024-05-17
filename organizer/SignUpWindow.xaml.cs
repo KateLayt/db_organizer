@@ -1,4 +1,5 @@
-﻿using organizer.Models;
+﻿using organizer.Migrations;
+using organizer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,9 @@ namespace organizer
 
         private void Btn_SignUp_Click(object sender, RoutedEventArgs e)
         {
+
+            // ПОДКЛЮЧЕНИЕ БД
+
             using (OrganizerDbContext dbContext = new OrganizerDbContext())
             {
                 User? existingUser = dbContext.Users.FirstOrDefault(u => u.Username == Txt_username.Text);
@@ -40,6 +44,7 @@ namespace organizer
                     {
                         string hashedPassword = HashPassword(Txt_password.Text);
                         User newUser = new() { Name = Txt_name.Text, Username = Txt_username.Text, HashPassword = hashedPassword, IsMale = isMale, BirthDate = DateTime.Now.ToUniversalTime() };
+                        newUser.AddCode = GenerateRandomCode(10);
 
                         dbContext.Users.Add(newUser);
                         dbContext.SaveChanges();
@@ -92,6 +97,24 @@ namespace organizer
             Buffer.BlockCopy(salt, 0, dst, 1, 0x10);
             Buffer.BlockCopy(buffer2, 0, dst, 0x11, 0x20);
             return Convert.ToBase64String(dst);
+        }
+
+        private static string GenerateRandomCode(int length)
+        {
+            Random random = new Random();
+
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var stringBuilder = new StringBuilder(length);
+
+            lock (random) // Для потокобезопасности
+            {
+                for (int i = 0; i < length; i++)
+                {
+                    stringBuilder.Append(chars[random.Next(chars.Length)]);
+                }
+            }
+
+            return stringBuilder.ToString();
         }
     }
 }

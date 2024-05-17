@@ -31,6 +31,7 @@ namespace organizer.Models
         public bool? IsMale { get; set; }
 
         public int? AvatarID { get; set; }
+        public string AddCode { get; set; }
 
         public DateTime? BirthDate { get; set; }
 

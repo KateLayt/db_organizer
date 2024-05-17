@@ -22,7 +22,10 @@ namespace organizer
     public partial class MainWindow : Window
     {
         public TaskGroup? displayedGroup;
+
+        // ПОДКЛЮЧЕНИЕ БД
         private static OrganizerDbContext dbContext = new OrganizerDbContext();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,6 +38,8 @@ namespace organizer
             ICollection<Task>? tasks;
             ICollection<RepeatableTask>? reptasks;
 
+
+            // ПОДКЛЮЧЕНИЕ БД
             if (dbContext.CurrentUsers.FirstOrDefault() != null)
             {
                 if (displayedGroup == null || (displayedGroup.Name == "Все задачи" && displayedGroup.IsBuiltin == true))
@@ -44,8 +49,6 @@ namespace organizer
                     Txt_DispListName.Text = "Все задачи";
                     Txt_DispListDescription.Visibility = Visibility.Collapsed;
 
-
-                    // ПОДКЛЮЧЕНИЕ БД
 
                     tasks = dbContext.Tasks
                         .Where(u => u.TaskGroup.UserID == dbContext.CurrentUsers.FirstOrDefault().UserId)

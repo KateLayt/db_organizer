@@ -42,8 +42,6 @@ namespace organizer
             main.Update();
 
             //ПОДКЛЮЧЕНИЕ БД
-            // Короче тут удаляются все задачи которые были в списке. Можно сделать еще отдельную кнопочку, чтобы
-            // они перемещались во все заметки, а удалялась только сама группа
 
             using (OrganizerDbContext dbContext = new OrganizerDbContext())
             {
