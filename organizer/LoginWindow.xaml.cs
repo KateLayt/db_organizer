@@ -1,4 +1,5 @@
-﻿using organizer.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using organizer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,6 @@ namespace organizer
 
             if (user == null)
             {
-                // Такого пользователя не найдено
                 MessageBox.Show("Такого пользователя не найдено");
             }
             else

@@ -1,0 +1,15 @@
+﻿<Window x:Class="organizer.AddFriend"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:organizer"
+        mc:Ignorable="d"
+        Title="AddFriend" Height="142" Width="391">
+    <Grid>
+        <Label Content="Код приглашения друга:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="174"/>
+        <Button x:Name="Btn_AddFriend" Content="Добавить" HorizontalAlignment="Left" Margin="288,90,0,0" VerticalAlignment="Top" Height="26" Width="71" Click="Btn_AddFriend_Click"/>
+        <TextBox x:Name="Txt_AddCode" HorizontalAlignment="Left" Margin="23,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236" Height="35"/>
+
+    </Grid>
+</Window>

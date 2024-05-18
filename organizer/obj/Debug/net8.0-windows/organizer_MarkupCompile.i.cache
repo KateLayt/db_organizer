@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\
 organizer
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Uni\db_organizer\organizer\App.xaml
-11-1140842464
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\App.xaml
+12-1459313054
 
-45-1723908457
-212407935835
-FriendPlate.xaml;GroupCreateWindow.xaml;GroupEditWindow.xaml;LoginWindow.xaml;MainWindow.xaml;PlainTaskPlate.xaml;RepeatableTaskPlate.xaml;SignUpWindow.xaml;TaskCreateWindow.xaml;TaskEditWindow.xaml;TaskGroupPlate.xaml;
+481884333476
+2121819984767
+AddFriend.xaml;FriendPlate.xaml;GroupCreateWindow.xaml;GroupEditWindow.xaml;LoginWindow.xaml;MainWindow.xaml;PlainTaskPlate.xaml;RepeatableTaskPlate.xaml;SignUpWindow.xaml;TaskCreateWindow.xaml;TaskEditWindow.xaml;TaskGroupPlate.xaml;
 
 True
 

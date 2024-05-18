@@ -94,16 +94,6 @@ namespace organizer
                         dbContext.SaveChanges();
                     }
 
-                    //Добавить reptask в наши задачи Db.Add чето там, и обновить страницу
-
-
-
-                    //if (designatedGroup == null) MANUALDATA.reptsklst.Add(repTask);
-                    //else if (designatedGroup.RepeatableTasks == null)
-                    //{
-                    //    designatedGroup.RepeatableTasks = new List<RepeatableTask> { repTask };
-                    //}
-                    //else designatedGroup.RepeatableTasks.Add(repTask);
 
                     main.UpdateMain();
                     Close();

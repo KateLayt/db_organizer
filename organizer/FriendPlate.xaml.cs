@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using organizer.Migrations;
 using organizer.Models;
 
 namespace organizer
@@ -22,27 +23,28 @@ namespace organizer
     public partial class FriendPlate : UserControl
     {
         User representedFriend;
-        User currentUser;
         MainWindow main;
 
-        public FriendPlate(MainWindow sender, User repUser, User curUser)
+        public FriendPlate(MainWindow sender, User repUser)
         {
             main = sender;
             representedFriend=repUser;
-            currentUser=curUser;
             InitializeComponent();
-            Txt_Name.Text = currentUser.Name;
+            Txt_Name.Text = repUser.Name;
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            currentUser.Family.Users.Remove(representedFriend);
-            //Удалить пользователя из другов
+            using (OrganizerDbContext dbContext = new OrganizerDbContext())
+            {
+                dbContext.Users.FirstOrDefault(u => u.UserID == representedFriend.UserID).FamilyID = representedFriend.UserID;
+            }
         }
 
         private void On_SelectFriend_Click(object sender, RoutedEventArgs e)
         {
             main.selectedFriend = representedFriend;
+            main.UpdateMain();
         }
     }
 }

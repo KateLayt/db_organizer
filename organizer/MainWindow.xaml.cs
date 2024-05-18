@@ -22,7 +22,6 @@ namespace organizer
     public partial class MainWindow : Window
     {
         public TaskGroup? displayedGroup;
-        public User? currentUser;
         public User? selectedFriend;
 
         // ПОДКЛЮЧЕНИЕ БД
@@ -34,6 +33,11 @@ namespace organizer
             ShowMain();
             UpdateMain();
             UpdateFamily();
+            UpdateFriendsTasks();
+            if (selectedFriend != null)
+            {
+                MessageBox.Show("ss");
+            }
         }
 
         public void UpdateTasks()
@@ -42,16 +46,11 @@ namespace organizer
             ICollection<Task>? tasks;
             ICollection<RepeatableTask>? reptasks;
 
-            Txt_HelloUsrname.Text = currentUser?.Name;
-
-
             // ПОДКЛЮЧЕНИЕ БД
-            if (dbContext.CurrentUsers.FirstOrDefault() != null)
+            if (dbContext.CurrentUsers?.FirstOrDefault() != null)
             {
                 if (displayedGroup == null || (displayedGroup.Name == "Все задачи" && displayedGroup.IsBuiltin == true))
                 {
-                    //тут можно сделать или отдельный такой список всех задач, с заранее известным айдишником
-                    //ну или выводить их вложенными циклами, но тогда там будет запара с плашкой
                     Txt_DispListName.Text = "Все задачи";
                     Txt_DispListDescription.Visibility = Visibility.Collapsed;
 
@@ -118,20 +117,12 @@ namespace organizer
                         taskPlate.Update();
                     }
                 }
-            } 
+            }
         }
 
         public void UpdateLists()
         {
             View_Lists.Children.Clear();
-            //foreach (TaskGroup tg in MANUALDATA.groups)
-            //{
-            //    TaskGroupPlate plate = new(this);
-            //    plate.representedGroup = tg;
-            //    View_Lists.Children.Add(plate);
-            //    plate.Update();
-            //}
-
 
             // ПОДКЛЮЧЕНИЕ БД
 
@@ -155,6 +146,18 @@ namespace organizer
         {
             UpdateLists();
             UpdateTasks();
+            UpdateFamily();
+            UpdateFriendsTasks();
+            if (dbContext.CurrentUsers.FirstOrDefault() != null)
+            {
+                Txt_HelloUsrname.Text = dbContext.Users.FirstOrDefault(n => n.UserID == dbContext.CurrentUsers.FirstOrDefault().UserId).Name;
+                Btn_Login.Content = "Выход";
+            }
+            else
+            {
+                Btn_Login.Content = "Регистрация/Вход";
+                Txt_HelloUsrname.Text = "неизвестный";
+            }
         }
 
         public void ShowMain()
@@ -183,31 +186,69 @@ namespace organizer
         {
             //Тут обновить всю инфу на странице семьи
             View_Friends.Children.Clear();
-            //foreach (друга из Пользователь.Други)
-            //{
-            //    FriendPlate plate = new(this, repUser: friend, curUser: currentUser);
-            //    View_Friends.Children.Add(plate);
-            //}
+            if (dbContext.CurrentUsers.FirstOrDefault() != null)
+            {
+                try
+                {
+                    var friends = dbContext?.Users.Where(f => f.FamilyID == dbContext.CurrentUsers.FirstOrDefault().User.FamilyID).ToList();
+
+                    if (friends != null)
+                    {
+                        foreach (User? friend in friends)
+                        {
+                            FriendPlate plate = new(this, repUser: friend);
+                            View_Friends.Children.Add(plate);
+                        }
+                    }
+                    
+                }
+                catch { }
+            }
         }
 
         public void UpdateFriendsTasks()
         {
             View_FriendsTasks.Children.Clear();
             Txt_SelectedFriendName.Text = selectedFriend?.Name;
+            ICollection<Task>? tasks;
+            ICollection<RepeatableTask>? reptasks;
 
-            //foreach (Task из selectedFriend....ПростыеТаски)
-            //{
-            //    PlainTaskPlate plate = new();
-            //    plate.RepresentedTask = 
-            //    View_FriendsTasks.Children.Add(plate);
-            //}
+            if ((dbContext?.CurrentUsers?.FirstOrDefault() != null) && (selectedFriend != null))
+            {
 
-            //foreach (RepeatableTask из selectedFriend....ПростыеТаски)
-            //{
-            //    RepeatableTask plate = new();
-            //    plate.RepeatableTaskID =
-            //    View_FriendsTasks.Children.Add(plate);
-            //}
+                tasks = dbContext.Tasks
+                        .Where(u => u.TaskGroup.UserID == selectedFriend.UserID)
+                        .ToArray();
+               
+
+                reptasks = dbContext.RepeatableTasks
+                    .Where(u => u.TaskGroup.UserID == selectedFriend.UserID)
+                    .ToArray();
+              
+
+
+                if (tasks != null)
+                {
+                    foreach (Task tsk in tasks)
+                    {
+                        PlainTaskPlate taskPlate = new PlainTaskPlate();
+                        taskPlate.RepresentedTask = tsk;
+                        View_FriendsTasks.Children.Add(taskPlate);
+                        taskPlate.Update();
+                    }
+                }
+
+                if (reptasks != null)
+                {
+                    foreach (RepeatableTask tsk in reptasks!)
+                    {
+                        RepeatableTaskPlate taskPlate = new RepeatableTaskPlate();
+                        taskPlate.RepresentedTask = tsk;
+                        View_FriendsTasks.Children.Add(taskPlate);
+                        taskPlate.Update();
+                    }
+                }
+            }
         }
 
         private void Btn_Login_Click(object sender, RoutedEventArgs e)
@@ -219,7 +260,7 @@ namespace organizer
             }
             else
             {
-                // Страница аккаунта. Кнопку выхода поместить туда
+                Exit();
             }
         }
 
@@ -257,9 +298,8 @@ namespace organizer
 
         private void Btn_EditGroup_Click(object sender, RoutedEventArgs e)
         {
-            CurrentUser? currentUser = dbContext.CurrentUsers.FirstOrDefault();
 
-            if (currentUser != null)
+            if (dbContext.CurrentUsers.FirstOrDefault() != null)
             {
                 if (displayedGroup == null || displayedGroup.TaskGroupID < 0) { MessageBox.Show("Эту группу нельзя изменить"); return; }
                 GroupEditWindow editWind = new(displayedGroup, this);
@@ -272,7 +312,7 @@ namespace organizer
             }
         }
 
-        private void Btn_TestExit_Click(object sender, RoutedEventArgs e)
+        private void Exit()
         {
             CurrentUser? currentUser = dbContext.CurrentUsers.FirstOrDefault();
 
@@ -300,8 +340,39 @@ namespace organizer
         {
             //выбрать тут первого члена семьи по умолчанию или если его нет
             //Pnl_FriendsTasks.Visibility = Visibility.Collapsed;
-            ShowFamily();
-            UpdateFamily();
+            if (dbContext.CurrentUsers.Any())
+            {
+                //User? currentFamily = dbContext.Families.FirstOrDefault(n => n.FamilyID == dbContext.CurrentUsers.FirstOrDefault().User.FamilyID)?.Users.FirstOrDefault();
+                //if (currentFamily != null)
+                //{
+                //    selectedFriend = currentFamily;
+                //    Pnl_FriendsTasks.Visibility = Visibility.Visible;
+                //}
+                //else
+                //{
+                //    Pnl_FriendsTasks.Visibility = Visibility.Collapsed;
+                //    MessageBox.Show("В вашем кругу еще никого нет!");
+                //}    
+                ShowFamily();
+                UpdateFamily();
+            }
+            else
+            {
+                MessageBox.Show("Сначала авторизуйтесь!");
+            }
+        }
+
+        private void Btn_AddFriend_Click(object sender, RoutedEventArgs e)
+        {
+            if (dbContext.CurrentUsers.Any())
+            {
+                AddFriend addFriend = new AddFriend(this);
+                addFriend.Show();
+            }
+            else
+            {
+                MessageBox.Show("Сначала авторизуйтесь!");
+            }
         }
     }
 }

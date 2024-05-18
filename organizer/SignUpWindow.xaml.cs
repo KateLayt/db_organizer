@@ -42,9 +42,17 @@ namespace organizer
                 {
                     if (Txt_name.Text.Length > 3 && Txt_password.Text.Length > 3 )
                     {
+                        dbContext.Families.Add(new Family { Name = Txt_name.Text });
+                        dbContext.SaveChanges();
+
+                        var lastFamily = dbContext.Families.OrderByDescending(f => f.FamilyID).FirstOrDefault();
+
                         string hashedPassword = HashPassword(Txt_password.Text);
                         User newUser = new() { Name = Txt_name.Text, Username = Txt_username.Text, HashPassword = hashedPassword, IsMale = isMale, BirthDate = DateTime.Now.ToUniversalTime() };
                         newUser.AddCode = GenerateRandomCode(10);
+                        newUser.FamilyID = lastFamily!.FamilyID;
+
+                        lastFamily.FamilyID = newUser.UserID;
 
                         dbContext.Users.Add(newUser);
                         dbContext.SaveChanges();
@@ -106,7 +114,7 @@ namespace organizer
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             var stringBuilder = new StringBuilder(length);
 
-            lock (random) // Для потокобезопасности
+            lock (random)
             {
                 for (int i = 0; i < length; i++)
                 {

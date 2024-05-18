@@ -71,6 +71,9 @@ namespace organizer.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int?>("UserID")
+                        .HasColumnType("integer");
+
                     b.HasKey("FamilyID");
 
                     b.ToTable("Families");

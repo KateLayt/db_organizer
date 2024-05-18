@@ -244,3 +244,7 @@ C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\SignUpWindow.g.cs
 C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\FriendPlate.baml
 C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\LoginWindow.baml
 C:\Uni\db_organizer\organizer\obj\Debug\net8.0-windows\SignUpWindow.baml
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\FriendPlate.g.cs
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\FriendPlate.baml
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\AddFriend.g.cs
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\AddFriend.baml
