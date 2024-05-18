@@ -231,7 +231,7 @@ namespace organizer
                 {
                     foreach (Task tsk in tasks)
                     {
-                        PlainTaskPlate taskPlate = new PlainTaskPlate();
+                        PlainTaskFriend taskPlate = new PlainTaskFriend();
                         taskPlate.RepresentedTask = tsk;
                         View_FriendsTasks.Children.Add(taskPlate);
                         taskPlate.Update();
@@ -242,7 +242,7 @@ namespace organizer
                 {
                     foreach (RepeatableTask tsk in reptasks!)
                     {
-                        RepeatableTaskPlate taskPlate = new RepeatableTaskPlate();
+                        RepeatableTaskPlateFriend taskPlate = new RepeatableTaskPlateFriend();
                         taskPlate.RepresentedTask = tsk;
                         View_FriendsTasks.Children.Add(taskPlate);
                         taskPlate.Update();

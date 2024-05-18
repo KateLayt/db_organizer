@@ -248,3 +248,7 @@ C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organi
 C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\FriendPlate.baml
 C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\AddFriend.g.cs
 C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\AddFriend.baml
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\PlainTaskPlateFriend.g.cs
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\RepeatableTaskPlateFriend.g.cs
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\PlainTaskPlateFriend.baml
+C:\Users\MSI GL75\Desktop\MPU\бд\organizer-db\organizer-db\db_organizer\organizer\obj\Debug\net8.0-windows\RepeatableTaskPlateFriend.baml

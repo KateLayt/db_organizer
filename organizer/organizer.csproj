@@ -40,6 +40,12 @@
     <Compile Update="GroupEditWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="PlainTaskPlateFriend.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="RepeatableTaskPlateFriend.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>
