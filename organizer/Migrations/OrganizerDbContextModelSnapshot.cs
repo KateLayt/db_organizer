@@ -49,6 +49,36 @@ namespace organizer.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("organizer.Models.CurrentUser", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("CurrentUsers");
+                });
+
+            modelBuilder.Entity("organizer.Models.Family", b =>
+                {
+                    b.Property<int>("FamilyID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("FamilyID"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("UserID")
+                        .HasColumnType("integer");
+
+                    b.HasKey("FamilyID");
+
+                    b.ToTable("Families");
+                });
+
             modelBuilder.Entity("organizer.Models.RepeatableTask", b =>
                 {
                     b.Property<int>("RepeatableTaskID")
@@ -59,6 +89,9 @@ namespace organizer.Migrations
 
                     b.Property<DateTime?>("Deadline")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("Interval")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime?>("LastDone")
                         .HasColumnType("timestamp with time zone");
@@ -135,32 +168,6 @@ namespace organizer.Migrations
                     b.HasIndex("UserID");
 
                     b.ToTable("TaskGroups");
-
-                    b.HasData(
-                        new
-                        {
-                            TaskGroupID = -1,
-                            IsBuiltin = true,
-                            Name = "Уборка"
-                        },
-                        new
-                        {
-                            TaskGroupID = -2,
-                            IsBuiltin = true,
-                            Name = "Продукты"
-                        },
-                        new
-                        {
-                            TaskGroupID = -3,
-                            IsBuiltin = true,
-                            Name = "Работа"
-                        },
-                        new
-                        {
-                            TaskGroupID = -4,
-                            IsBuiltin = true,
-                            Name = "Прочее"
-                        });
                 });
 
             modelBuilder.Entity("organizer.Models.User", b =>
@@ -171,15 +178,18 @@ namespace organizer.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("UserID"));
 
+                    b.Property<string>("AddCode")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<int?>("AvatarID")
                         .HasColumnType("integer");
 
                     b.Property<DateTime?>("BirthDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int?>("FamilyID")
+                        .HasColumnType("integer");
 
                     b.Property<string>("HashPassword")
                         .IsRequired()
@@ -193,7 +203,13 @@ namespace organizer.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("UserID");
+
+                    b.HasIndex("FamilyID");
 
                     b.ToTable("Users");
                 });
@@ -203,6 +219,17 @@ namespace organizer.Migrations
                     b.HasOne("organizer.Models.User", "User")
                         .WithMany("Comments")
                         .HasForeignKey("UserID");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("organizer.Models.CurrentUser", b =>
+                {
+                    b.HasOne("organizer.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -232,6 +259,20 @@ namespace organizer.Migrations
                         .HasForeignKey("UserID");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("organizer.Models.User", b =>
+                {
+                    b.HasOne("organizer.Models.Family", "Family")
+                        .WithMany("Users")
+                        .HasForeignKey("FamilyID");
+
+                    b.Navigation("Family");
+                });
+
+            modelBuilder.Entity("organizer.Models.Family", b =>
+                {
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("organizer.Models.TaskGroup", b =>

@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 namespace organizer.Models
 {
@@ -20,7 +22,7 @@ namespace organizer.Models
 
         [Required]
         [EmailAddress]
-        public string? Email { get; set; }
+        public string? Username { get; set; }
 
         [Required]
         public string? HashPassword { get; set; }
@@ -29,8 +31,14 @@ namespace organizer.Models
         public bool? IsMale { get; set; }
 
         public int? AvatarID { get; set; }
+        public string AddCode { get; set; }
 
         public DateTime? BirthDate { get; set; }
+
+        [ForeignKey("Family")]
+        public int? FamilyID { get; set; }
+
+        public virtual Family? Family { get; set; }
 
         public virtual ICollection<TaskGroup>? TaskGroups { get; set; }
 

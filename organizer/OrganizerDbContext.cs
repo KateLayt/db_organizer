@@ -17,11 +17,12 @@ namespace organizer
         public DbSet<Task> Tasks { get; set; }
         public DbSet<TaskGroup> TaskGroups { get; set; }
         public DbSet<RepeatableTask> RepeatableTasks { get; set; }
+        public DbSet<CurrentUser> CurrentUsers { get; set; }
+        public DbSet<Family> Families { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            TaskGroup.SetBaseGroups(modelBuilder);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

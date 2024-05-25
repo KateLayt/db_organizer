@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="organizer.PlainTaskPlate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:organizer"
+             mc:Ignorable="d" 
+             d:DesignHeight="110" d:DesignWidth="300">
+    <Grid Background="#FF262626">
+        <StackPanel>
+            <WrapPanel HorizontalAlignment="Left" Margin="15,15,0,0">
+                <TextBlock x:Name="Txt_TaskName" TextWrapping="Wrap" HorizontalAlignment="Left" Width="148" Height="16" FontFamily="Century Gothic" FontWeight="Bold" Foreground="White"><Run Language="ru-ru" Text="Название задачи"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+                <TextBlock x:Name="Txt_TaskStatus" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="118" TextAlignment="Right" FontFamily="Century Gothic" Foreground="White"><Run Text="Статус"/><Run Language="ru-ru" Text=" задачи"/></TextBlock>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Left" Margin="15,10,0,0">
+                <TextBlock x:Name="Txt_DeadlinePretxt" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" FontFamily="Century Gothic" Foreground="White" HorizontalAlignment="Left" Width="97"><Run Language="ru-ru" Text="Крайний срок:"/></TextBlock>
+                <TextBlock x:Name="Txt_Deadline" HorizontalAlignment="Left" TextWrapping="Wrap" Width="90" FontFamily="Century Gothic" Foreground="White"><Run Text="дата"/></TextBlock>
+            </WrapPanel>
+            <WrapPanel Margin="15,10,10,0">
+                <Button x:Name="Btn_TaskEdit" Content="Изменить" Click="Btn_TaskEdit_Click" FontFamily="Century Gothic" Background="#FF5C5C5C" Foreground="White" BorderBrush="#FF4E4E4E" Height="28" Width="90" HorizontalAlignment="Left"/>
+                <Button x:Name="Btn_TaskDone" Content="Готово" Margin="95,0,0,0" Click="Btn_TaskDone_Click" FontFamily="Century Gothic" Background="#FF5C5C5C" Foreground="White" BorderBrush="#FF4E4E4E" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="90"/>
+            </WrapPanel>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

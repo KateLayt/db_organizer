@@ -7,7 +7,75 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AddFriend.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="FriendPlate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="LoginWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlainTaskPlate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="RepeatableTaskPlate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SignUpWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TaskCreateWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TaskEditWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TaskGroupPlate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AddFriend.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="FriendPlate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GroupCreateWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PlainTaskPlateFriend.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PlainTaskPlate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RepeatableTaskPlateFriend.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RepeatableTaskPlate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SignUpWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TaskCreateWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GroupEditWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TaskEditWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TaskGroupPlate.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

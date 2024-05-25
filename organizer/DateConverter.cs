@@ -12,10 +12,14 @@ namespace organizer
             { 1, "января"}, { 2, "февраля" }, { 3, "марта"}, { 4, "апреля" }, { 5, "мая"}, { 6, "июня" },
             { 7, "июля"}, { 8, "августа" }, { 9, "сентября"}, { 10, "октября" }, { 11, "ноября"}, { 12, "декабря" }};
 
-        public static string RepresentDate(DateTime date)
+        public static string RepresentDate(DateTime? date)
         {
-
-            return $"{date.Day.ToString()} {MonthNames[date.Month]}";
+            if (date == null)
+            {
+                return "";
+            }
+            DateTime date1 = (DateTime)date;
+            return $"{date1.Day.ToString()} {MonthNames[date1.Month]}";
         }
 
         public static DateTime GetDateTime(string date)
